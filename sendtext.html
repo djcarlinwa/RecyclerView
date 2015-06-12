@@ -112,7 +112,7 @@ $(document).ready(function()
    var newTextBoxDiv = $(document.createElement('div')).attr("id", 'TextBoxDiv' + i);
 
    newTextBoxDiv.after().html('<div id="resultdiv' + i + '" style="float: left; width: 200px;">Textbox #'+ counter + ' : </div>' +
-    '<div style="float: left; width: 200px;"> <input type="text" name="textbox' + i + 
+    '<div style="float: left; width: 200px;"> <input type="text" name="findtextbox' + i + 
     '" id="textbox' + i + '" value="" ></div><div style="clear:left;"></div>');
    
    newTextBoxDiv.appendTo("#BodyDiv");
@@ -156,7 +156,7 @@ function  addPerson(){
 	        $( "<div class=\"content\">").html( json.html ).appendTo( "body" );
 	        
 	        $("#addpersonresult1").html(" ResultCode:" + json.responsecode + " RecordId:" + json.id);
-	        //alert( "request id" + json.id); 
+	        alert( "request id" + json.id); 
 	        
 	        
 	    },
