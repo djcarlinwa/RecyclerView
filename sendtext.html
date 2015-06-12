@@ -144,7 +144,7 @@ function  addPerson(){
 	    },
 	 
 	    // Whether this is a POST or GET request
-	    type: "GET",
+	    type: "POST",
 	 
 	    // The type of data we expect back
 	    dataType : "json",
@@ -156,6 +156,7 @@ function  addPerson(){
 	        $( "<div class=\"content\">").html( json.html ).appendTo( "body" );
 	        
 	        $("#addpersonresult").html("RecordId: " + json.id);
+	        alert( "request id" + json.id); 
 	        
 	        
 	    },
