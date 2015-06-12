@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Send Text</title>
+<script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/knockout/3.3.0/knockout-min.js'></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+
+var wpcGet ="http://wallplatecharger.com:8080/TomcatEight/Medications?";
+var wpcGetNames = wpcGet + "namesofar=";
+var wpcSetName  = wpcGet + "setname=";
+var myUrl = "http://wallplatecharger.com/cgi-bin/";
+var counter = 1;
+
+$(document).ready(function()
+{
+  for (i = 0; i < 4; i++)
+  {
+  var newTextBoxDiv = $(document.createElement('div')).attr("id", 'TextBoxDiv' + i);
+
+  newTextBoxDiv.after().html('<label id="label' + i + '">Textbox #'+ counter + ' : </label>' +
+   '<input type="text" name="textbox' + i + 
+   '" id="textbox' + i + '" value="" >');
+  
+  newTextBoxDiv.appendTo("#BodyDiv");
+  }
+
+  
+ // $( "textbox1" ).attr( "title" );
+ // $( "textbox1" ).attr("width","500");
+   $("#TextBoxDiv0").html("Add New Person"); 
+   $("#label1").text("First Name");
+   $("#label2").text("Last Name");
+   $("#label3").text("Email");
+  
+   
+   var newDiv = $(document.createElement('div')).attr("id", 'ButtonDiv1' );
+   newDiv.appendTo("#BodyDiv");
+   
+   var r= '<input type="button" id="Button1" value="Find"/>';
+   $("#ButtonDiv1").html(r);
+   
+   
+   $( "#Button1" ).click(function() {
+     myFunc();
+   });
+  
+   
+   var newDiv = $(document.createElement('div')).attr("id", 'ButtonDiv1' );
+   newDiv.appendTo("#BodyDiv");
+   
+   var r= '<input type="button" id="Button2" value="Add"/>';
+   $("#ButtonDiv1").append(r);
+   
+   
+   $( "#Button2" ).click(function() {
+     myFunc();
+   });
+  
+   
+   
+   
+   
+   
+   for (i = i; i < 3; i++)
+   {
+   var newTextBoxDiv = $(document.createElement('div')).attr("id", 'TextBoxDiv' + counter);
+
+   newTextBoxDiv.after().html('<label id="label' + i + '">Textbox #'+ counter + ' : </label>' +
+    '<input type="text" name="textbox' + i + 
+    '" id="textbox' + i + '" value="" >');
+   
+   newTextBoxDiv.appendTo("#BodyDiv");
+   }
+ 
+});
+
+
+
+
+function  addPerson(){
+	
+	
+	$.ajax({
+
+	    // The URL for the request
+	    url: myUrl + "adperson.cgi",
+	 
+	    // The data to send (will be converted to a query string)
+	    data: {
+	        first: $('#textbox2'.val()),
+	        last:  $('#textbox3'.val()),
+	        email: $('#textbox4'.val())
+	    },
+	 
+	    // Whether this is a POST or GET request
+	    type: "GET",
+	 
+	    // The type of data we expect back
+	    dataType : "json",
+	 
+	    // Code to run if the request succeeds;
+	    // the response is passed to the function
+	    success: function( json ) {
+	        $( "<h1>" ).text( json.title ).appendTo( "body" );
+	        $( "<div class=\"content\">").html( json.html ).appendTo( "body" );
+	    },
+	 
+	    // Code to run if the request fails; the raw request and
+	    // status codes are passed to the function
+	    error: function( xhr, status, errorThrown ) {
+	        alert( "Sorry, there was a problem!" );
+	        console.log( "Error: " + errorThrown );
+	        console.log( "Status: " + status );
+	        console.dir( xhr );
+	    },
+	 
+	    // Code to run regardless of success or failure
+	    complete: function( xhr, status ) {
+	        alert( "The request is complete!" );
+	    }
+	});
+
+	};
+
+function  myFunc(){
+
+$.ajax({
+	 
+    // The URL for the request
+    url: myUrl,
+ 
+    // The data to send (will be converted to a query string)
+    data: {
+        fname: fname
+    },
+ 
+    // Whether this is a POST or GET request
+    type: "GET",
+ 
+    // The type of data we expect back
+    dataType : "json",
+ 
+    // Code to run if the request succeeds;
+    // the response is passed to the function
+    success: function( json ) {
+        $( "<h1>" ).text( json.title ).appendTo( "body" );
+        $( "<div class=\"content\">").html( json.html ).appendTo( "body" );
+    },
+ 
+    // Code to run if the request fails; the raw request and
+    // status codes are passed to the function
+    error: function( xhr, status, errorThrown ) {
+        alert( "Sorry, there was a problem!" );
+        console.log( "Error: " + errorThrown );
+        console.log( "Status: " + status );
+        console.dir( xhr );
+    },
+ 
+    // Code to run regardless of success or failure
+    complete: function( xhr, status ) {
+        alert( "The request is complete!" );
+    }
+});
+
+};
+
+self.setName = function(allData) {
+  	var myVal = $("#three").val();
+        $.getJSON(wpcSetName + myVal, function(allData) {
+         var mappedTasks = $.map(allData, function(item) { return new Task(item) });
+         self.tasks(mappedTasks);
+         $("#one").html("Receive");
+       //  $("#two").html(this.ajaxParam1());
+          });
+        $("#one").html("Send");
+    };
+    
+    self.newJSON = function(allData) {
+       	var myVal = $("#three").val();
+        $.getJSON(wpcGetNames + myVal, function(allData) {
+         var mappedTasks = $.map(allData, function(item) { return new Task(item) });
+         self.tasks(mappedTasks);
+         $("#one").html("Receive");
+       //  $("#two").html(this.ajaxParam1());
+          });
+        $("#one").html("Sent Name");
+    };
+</script>
+</head>
+<body>
+<div id="BodyDiv">
+
+</div>
+</body>
+</html>
