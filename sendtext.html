@@ -155,8 +155,8 @@ function  addPerson(){
 	        $( "<h1>" ).text( json.title ).appendTo( "body" );
 	        $( "<div class=\"content\">").html( json.html ).appendTo( "body" );
 	        
-	        $("#addpersonresult").html("RecordId: " + json.id);
-	        alert( "request id" + json.id); 
+	        $("#addpersonresult1").html(" ResultCode:" + json.responsecode + " RecordId:" + json.id);
+	        //alert( "request id" + json.id); 
 	        
 	        
 	    },
