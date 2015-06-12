@@ -22,7 +22,7 @@ $(document).ready(function()
 
   newTextBoxDiv.after().html('<div id="label' + i + '" style="float: left; width: 200px;">Textbox #'+ counter + ' : </div>' +
    '<div style="float: left; width: 200px;"> <input type="text" name="textbox' + i + 
-   '" id="textbox' + i + '" value="" ></div><div style="clear:left;"></div>');
+   '" id="findinput' + i + '" value="" ></div><div style="clear:left;"></div>');
   
   newTextBoxDiv.appendTo("#BodyDiv");
   }
@@ -129,7 +129,7 @@ $(document).ready(function()
 
 
 function  addPerson(){
-	
+	alert("values:" + $('#findinput3').val());
 	
 	$.ajax({
 
@@ -138,9 +138,9 @@ function  addPerson(){
 	 
 	    // The data to send (will be converted to a query string)
 	    data: {
-	        first: $('#textbox2').val(),
-	        last:  $('#textbox3').val(),
-	        email: $('#textbox4').val()
+	        first: $('#findinput1').val(),
+	        last:  $('#findinput2').val(),
+	        email: $('#findinput3').val()
 	    },
 	 
 	    // Whether this is a POST or GET request
