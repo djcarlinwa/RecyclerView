@@ -290,9 +290,9 @@ function  addDevice(){
 	 
 	    // The data to send (will be converted to a query string)
 	    data: {
-	        first: $('#addpersoninput1').val(),
-	        last:  $('#addpersoninput2').val(),
-	        email: $('#addpersoninput3').val()
+	        mac:    $('#adddeviceinput1').val(),
+	        typeid: $("#adddeviceselector option:selected").text();
+
 	    },
 	 
 	    // Whether this is a POST or GET request
@@ -517,9 +517,9 @@ function  addPerson(){
 				    	alert("Hello" + json.toString());
 				    	
 				    	var _select = $('<select>');
-						$.each(json, function(val, text) {
+						$.each(json, function(recordid, recordtext) {
 						    _select.append(
-						            $('<option></option>').val(val).html(text)
+						            $('<option></option>').val(recordid).html(recordtext)
 						        );
 						});
 					
