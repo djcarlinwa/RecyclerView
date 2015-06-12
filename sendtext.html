@@ -48,13 +48,12 @@ $(document).ready(function()
    });
   
    
-   for (i = 0; i < 2; i++)
+   for (i = 1; i < 2; i++)
    {
    var newTextBoxDiv = $(document.createElement('div')).attr("id", 'AddPersonResultDiv' + i);
 
-   newTextBoxDiv.after().html('<div id="addpersonlabel' + i + '" style="float: left; width: 200px;">Textbox #'+ counter + ' : </div>' +
-    '<div style="float: left; width: 200px;"> <input type="text" name="textbox' + i + 
-    '" id="textbox' + i + '" value="" ></div><div style="clear:left;"></div>');
+   newTextBoxDiv.after().html('<div id="addpersonlabel' + i + '" style="float: left; width: 200px;">Add Person Result</div>' +
+    '<div style="float: left; width: 200px;" id="addpersonresult' + i + '"></div><div style="clear:left;"></div>');
    
    newTextBoxDiv.appendTo("#BodyDiv");
    }
@@ -155,6 +154,8 @@ function  addPerson(){
 	    success: function( json ) {
 	        $( "<h1>" ).text( json.title ).appendTo( "body" );
 	        $( "<div class=\"content\">").html( json.html ).appendTo( "body" );
+	        
+	        $("#addpersonresult").html("RecordId: " + json.id);
 	        
 	        
 	    },
