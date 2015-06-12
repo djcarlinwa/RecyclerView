@@ -20,9 +20,9 @@ $(document).ready(function()
   {
   var newTextBoxDiv = $(document.createElement('div')).attr("id", 'AddPersonDiv' + i);
 
-  newTextBoxDiv.after().html('<div id="label' + i + '" style="float: left; width: 200px;">Textbox #'+ counter + ' : </div>' +
-   '<div style="float: left; width: 200px;"> <input type="text" name="textbox' + i + 
-   '" id="findinput' + i + '" value="" ></div><div style="clear:left;"></div>');
+  newTextBoxDiv.after().html('<div id="addlabel' + i + '" style="float: left; width: 200px;">Textbox #'+ counter + ' : </div>' +
+   '<div style="float: left; width: 200px;" id="adddiv' + i + '"> <input type="text" name="textbox' + i + 
+   '" id="addinput' + i + '" value="" ></div><div style="clear:left;"></div>');
   
   newTextBoxDiv.appendTo("#BodyDiv");
   }
@@ -30,10 +30,10 @@ $(document).ready(function()
   
  // $( "textbox1" ).attr( "title" );
  // $( "textbox1" ).attr("width","500");
-   $("#TextBoxDiv0").html("Add New Person"); 
-   $("#label1").text("First Name");
-   $("#label2").text("Last Name");
-   $("#label3").text("Email");
+   $("#addlabel0").html("Add Person"); 
+   $("#addlabel1").text("First Name");
+   $("#addlabel2").text("Last Name");
+   $("#addlabel3").text("Email");
   
    
    var newDiv = $(document.createElement('div')).attr("id", 'ButtonDiv1' );
@@ -118,7 +118,7 @@ $(document).ready(function()
    newTextBoxDiv.appendTo("#BodyDiv");
    }
    
-   $("#").html("Add New Person"); 
+   $("#resultdiv0").html("Add New Person"); 
    $("#resultdiv1").text("Record Id");
    $("#resultdiv2").text("First");
    $("#resultdiv3").text("Last");
@@ -138,9 +138,9 @@ function  addPerson(){
 	 
 	    // The data to send (will be converted to a query string)
 	    data: {
-	        first: $('#findinput1').val(),
-	        last:  $('#findinput2').val(),
-	        email: $('#findinput3').val()
+	        first: $('#addinput1').val(),
+	        last:  $('#addinput2').val(),
+	        email: $('#addinput3').val()
 	    },
 	 
 	    // Whether this is a POST or GET request
