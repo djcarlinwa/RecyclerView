@@ -13,15 +13,16 @@ var wpcSetName  = wpcGet + "setname=";
 var myUrl = "http://wallplatecharger.com/cgi-bin/";
 var counter = 1;
 
+
 $(document).ready(function()
 {
   for (i = 0; i < 4; i++)
   {
-  var newTextBoxDiv = $(document.createElement('div')).attr("id", 'TextBoxDiv' + i);
+  var newTextBoxDiv = $(document.createElement('div')).attr("id", 'AddPersonDiv' + i);
 
-  newTextBoxDiv.after().html('<label id="label' + i + '">Textbox #'+ counter + ' : </label>' +
-   '<input type="text" name="textbox' + i + 
-   '" id="textbox' + i + '" value="" >');
+  newTextBoxDiv.after().html('<div id="label' + i + '" style="float: left; width: 200px;">Textbox #'+ counter + ' : </div>' +
+   '<div style="float: left; width: 200px;"> <input type="text" name="textbox' + i + 
+   '" id="textbox' + i + '" value="" ></div><div style="clear:left;"></div>');
   
   newTextBoxDiv.appendTo("#BodyDiv");
   }
@@ -38,7 +39,7 @@ $(document).ready(function()
    var newDiv = $(document.createElement('div')).attr("id", 'ButtonDiv1' );
    newDiv.appendTo("#BodyDiv");
    
-   var r= '<input type="button" id="Button1" value="Find"/>';
+   var r= '<input type="button" id="Button1" value="Add"/>';
    $("#ButtonDiv1").html(r);
    
    
@@ -46,6 +47,33 @@ $(document).ready(function()
    addPerson();
    });
   
+   
+   for (i = 0; i < 2; i++)
+   {
+   var newTextBoxDiv = $(document.createElement('div')).attr("id", 'AddPersonResultDiv' + i);
+
+   newTextBoxDiv.after().html('<div id="addpersonlabel' + i + '" style="float: left; width: 200px;">Textbox #'+ counter + ' : </div>' +
+    '<div style="float: left; width: 200px;"> <input type="text" name="textbox' + i + 
+    '" id="textbox' + i + '" value="" ></div><div style="clear:left;"></div>');
+   
+   newTextBoxDiv.appendTo("#BodyDiv");
+   }
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
    
    var newDiv = $(document.createElement('div')).attr("id", 'ButtonDiv1' );
    newDiv.appendTo("#BodyDiv");
@@ -63,6 +91,11 @@ $(document).ready(function()
    
    
    
+   
+   
+   
+   
+   
    for (i = i; i < 3; i++)
    {
    var newTextBoxDiv = $(document.createElement('div')).attr("id", 'TextBoxDiv' + counter);
@@ -73,7 +106,24 @@ $(document).ready(function()
    
    newTextBoxDiv.appendTo("#BodyDiv");
    }
- 
+   
+   
+   for (i = 0; i < 5; i++)
+   {
+   var newTextBoxDiv = $(document.createElement('div')).attr("id", 'TextBoxDiv' + i);
+
+   newTextBoxDiv.after().html('<div id="resultdiv' + i + '" style="float: left; width: 200px;">Textbox #'+ counter + ' : </div>' +
+    '<div style="float: left; width: 200px;"> <input type="text" name="textbox' + i + 
+    '" id="textbox' + i + '" value="" ></div><div style="clear:left;"></div>');
+   
+   newTextBoxDiv.appendTo("#BodyDiv");
+   }
+   
+   $("#").html("Add New Person"); 
+   $("#resultdiv1").text("Record Id");
+   $("#resultdiv2").text("First");
+   $("#resultdiv3").text("Last");
+   $("#resultdiv4").text("Email");
 });
 
 
@@ -105,6 +155,8 @@ function  addPerson(){
 	    success: function( json ) {
 	        $( "<h1>" ).text( json.title ).appendTo( "body" );
 	        $( "<div class=\"content\">").html( json.html ).appendTo( "body" );
+	        
+	        
 	    },
 	 
 	    // Code to run if the request fails; the raw request and
