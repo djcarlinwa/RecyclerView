@@ -16,63 +16,126 @@ var counter = 1;
 
 $(document).ready(function()
 {
+  
+  //Add Person	
+  //four divs: addpersondiv + i
+  //addpersondive contains two child divs which float: left;
+  //child div: addpersonlabeldiv + i
+  //child div: addpersontextdiv + i
+  //input:     addpersoninput + i
   for (i = 0; i < 4; i++)
   {
-  var newTextBoxDiv = $(document.createElement('div')).attr("id", 'AddPersonDiv' + i);
+    var addPersonDiv = $(document.createElement('div')).attr("id", 'addpersondiv' + i);
 
-  newTextBoxDiv.after().html('<div id="addlabel' + i + '" style="float: left; width: 200px;">Textbox #'+ counter + ' : </div>' +
-   '<div style="float: left; width: 200px;" id="adddiv' + i + '"> <input type="text" name="textbox' + i + 
-   '" id="addinput' + i + '" value="" ></div><div style="clear:left;"></div>');
+    addPersonDiv.after().html('<div id="addpersonlabeldiv' + i + '" style="float: left; width: 200px;">Textbox #'+ counter + ' : </div>' +
+    '<div style="float: left; width: 200px;" id="addpersontextdiv' + i + '"> <input type="text" name="textbox' + i + 
+    '" id="addpersoninput' + i + '" value="" ></div><div style="clear:left;"></div>');
   
-  newTextBoxDiv.appendTo("#BodyDiv");
+    addPersonDiv.appendTo("#BodyDiv");
   }
-
+ 
+  $("#addpersonlabeldiv0").html("Add Person Input"); 
+  $("#addpersontextdiv0").html("&nbsp;"); 
+  $("#addpersonlabeldiv1").text("First Name");
+  $("#addpersonlabeldiv2").text("Last Name");
+  $("#addpersonlabeldiv3").text("Email");
+   
+  //one div: ButtonDiv1
+  //contains one button
+  var buttonDiv = $(document.createElement('div')).attr("id", 'buttondiv1' );
+  buttonDiv.appendTo("#BodyDiv");
+   
+  var r= '<input type="button" id="addbutton1" value="Add"/>';
   
- // $( "textbox1" ).attr( "title" );
- // $( "textbox1" ).attr("width","500");
-   $("#addlabel0").html("Add Person"); 
-   $("#addlabel1").text("First Name");
-   $("#addlabel2").text("Last Name");
-   $("#addlabel3").text("Email");
-  
-   
-   var newDiv = $(document.createElement('div')).attr("id", 'ButtonDiv1' );
-   newDiv.appendTo("#BodyDiv");
-   
-   var r= '<input type="button" id="Button1" value="Add"/>';
-   $("#ButtonDiv1").html(r);
-   
-   
-   $( "#Button1" ).click(function() {
+  $("#buttondiv1").html(r);
+    
+  $( "#addbutton1" ).click(function() {
    addPerson();
-   });
+  });
   
-   
-   for (i = 1; i < 2; i++)
-   {
-   var newTextBoxDiv = $(document.createElement('div')).attr("id", 'AddPersonResultDiv' + i);
+  //Add Person Result
+  var addPersonResultDiv = $(document.createElement('div')).attr("id", 'addpersonresultdiv' + i);
 
-   newTextBoxDiv.after().html('<div id="addpersonlabel' + i + '" style="float: left; width: 200px;">Add Person Result</div>' +
-    '<div style="float: left; width: 200px;" id="addpersonresult' + i + '"></div><div style="clear:left;"></div>');
+  addPersonResultDiv.after().html('<div id="addpersonresultlabel' + "" + '" style="float: left; width: 200px;">Add Person Result</div>' +
+  '<div style="float: left; width: 200px;" id="addpersonresult' + "" + '"></div><div style="clear:left;"></div>');
    
-   newTextBoxDiv.appendTo("#BodyDiv");
-   }
+  addPersonResultDiv.appendTo("#BodyDiv");
+  
+  //one div: horrule1
+  //contains <HR>
+  var horizontalRuleDiv = $(document.createElement('div')).attr("id", 'horrule1' );
+  horizontalRuleDiv.appendTo("#BodyDiv");
+  var rule= '<hr>';
+  $("#horrule1").html(rule);
+  
+  //Find Person
+  //four divs: addpersosondiv + i
+  //addpersondive contains two child divs which float: left;
+  //child div: addpersonlabeldiv + i
+  //child div: addpersontextdiv + i
+  //input:     addpersoninput + i
+  for (i = 0; i < 4; i++)
+  {
+    var findPersonDiv = $(document.createElement('div')).attr("id", 'findpersondiv' + i);
+
+    findPersonDiv.after().html('<div id="findpersonlabeldiv' + i + '" style="float: left; width: 200px;">Textbox #'+ counter + ' : </div>' +
+    '<div style="float: left; width: 200px;" id="findpersontextdiv' + i + '"> <input type="text" name="textbox' + i + 
+    '" id="findpersoninput' + i + '" value="" ></div><div style="clear:left;"></div>');
+  
+    findPersonDiv.appendTo("#BodyDiv");
+  }
+ 
+  $("#findpersonlabeldiv0").html("Find Person Input"); 
+  $("#findpersontextdiv0").html("&nbsp;"); 
+  $("#findpersonlabeldiv1").text("First Name");
+  $("#findpersonlabeldiv2").text("Last Name");
+  $("#findpersonlabeldiv3").text("Email");
    
+  //one div: ButtonDiv1
+  //contains one button
+  var findButtonDiv = $(document.createElement('div')).attr("id", 'findbuttondiv1' );
+  findButtonDiv.appendTo("#BodyDiv");
    
+  var r= '<input type="button" id="findbutton1" value="Find"/>';
+  
+  $("#findbuttondiv1").html(r);
+    
+  $( "#findbutton1" ).click(function() {
+   findPerson();
+  });
+  
+  //Find Person Result
+  var findPersonResultDiv = $(document.createElement('div')).attr("id", 'findpersonresultdiv' + i);
+
+  findPersonResultDiv.after().html('<div id="findpersonresultlabel' + "" + '" style="float: left; width: 200px;">Find Person Result</div>' +
+  '<div style="float: left; width: 200px;" id="findpersonresult' + "" + '"></div><div style="clear:left;"></div>');
    
+  findPersonResultDiv.appendTo("#BodyDiv");
+  
+  //one div: horrule2
+  //contains one <hr>
+  horizontalRuleDiv = $(document.createElement('div')).attr("id", 'horrule2' );
+  horizontalRuleDiv.appendTo("#BodyDiv");
+  $("#horrule2").html(rule);
+
+
+  //Find Person
+  //four divs: finepersosondiv + i
+  //findpersondiv  contains two child divs which float: left;
+  //child div: addpersonlabeldiv + i
+  //child div: addpersontextdiv + i
+  //input:     addpersoninput + i
+  
+  for (i = 1; i < 5; i++)
+  {
+    var findPersonDiv = $(document.createElement('div')).attr("id", 'findpersondiv' + i);
+
+    findPersonDiv.after().html('<div id="findpersonlabel' + i + '" style="float: left; width: 200px;"></div>' +
+    '<div style="float: left; width: 200px;" id="addbuttonresult' + i + '"></div><div style="clear:left;"></div>');
    
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
+    findPersonDiv.appendTo("#BodyDiv");
+  }
+ 
    
    var newDiv = $(document.createElement('div')).attr("id", 'ButtonDiv1' );
    newDiv.appendTo("#BodyDiv");
@@ -84,18 +147,8 @@ $(document).ready(function()
    $( "#Button2" ).click(function() {
      myFunc();
    });
-  
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   for (i = i; i < 3; i++)
+ 
+   for (i = 0; i < 1; i++)
    {
    var newTextBoxDiv = $(document.createElement('div')).attr("id", 'TextBoxDiv' + counter);
 
@@ -111,25 +164,24 @@ $(document).ready(function()
    {
    var newTextBoxDiv = $(document.createElement('div')).attr("id", 'TextBoxDiv' + i);
 
-   newTextBoxDiv.after().html('<div id="resultdiv' + i + '" style="float: left; width: 200px;">Textbox #'+ counter + ' : </div>' +
-    '<div style="float: left; width: 200px;"> <input type="text" name="findtextbox' + i + 
-    '" id="textbox' + i + '" value="" ></div><div style="clear:left;"></div>');
+   newTextBoxDiv.after().html('<div id="finddiv' + i + '" style="float: left; width: 200px;">&nbsp;</div>' +
+    '<div style="float: left; width: 200px;">&nbsp;</div><div style="clear:left;"></div>');
    
    newTextBoxDiv.appendTo("#BodyDiv");
    }
    
-   $("#resultdiv0").html("Add New Person"); 
-   $("#resultdiv1").text("Record Id");
-   $("#resultdiv2").text("First");
-   $("#resultdiv3").text("Last");
-   $("#resultdiv4").text("Email");
+   $("#finddiv0").html("&nbsp;"); 
+   $("#finddiv1").text("Record Id");
+   $("#finddiv2").text("First");
+   $("#finddiv3").text("Last");
+   $("#finddiv4").text("Email");
 });
 
 
 
 
 function  addPerson(){
-	alert("values:" + $('#findinput3').val());
+	////alert("values:" + $('#findinput3').val());
 	
 	$.ajax({
 
@@ -138,9 +190,9 @@ function  addPerson(){
 	 
 	    // The data to send (will be converted to a query string)
 	    data: {
-	        first: $('#addinput1').val(),
-	        last:  $('#addinput2').val(),
-	        email: $('#addinput3').val()
+	        first: $('#addpersoninput1').val(),
+	        last:  $('#addpersoninput2').val(),
+	        email: $('#addpersoninput3').val()
 	    },
 	 
 	    // Whether this is a POST or GET request
@@ -155,8 +207,8 @@ function  addPerson(){
 	        $( "<h1>" ).text( json.title ).appendTo( "body" );
 	        $( "<div class=\"content\">").html( json.html ).appendTo( "body" );
 	        
-	        $("#addpersonresult1").html(" ResultCode:" + json.responsecode + " RecordId:" + json.id);
-	        alert( "request id" + json.id); 
+	        $("#addpersonresult").html(" ResultCode:" + json.responsecode + " RecordId:" + json.id);
+	        //alert( "request id" + json.id); 
 	        
 	        
 	    },
@@ -164,7 +216,7 @@ function  addPerson(){
 	    // Code to run if the request fails; the raw request and
 	    // status codes are passed to the function
 	    error: function( xhr, status, errorThrown ) {
-	        alert( "Sorry, there was a problem!" );
+	        //alert( "Sorry, there was a problem!" );
 	        console.log( "Error: " + errorThrown );
 	        console.log( "Status: " + status );
 	        console.dir( xhr );
@@ -172,11 +224,80 @@ function  addPerson(){
 	 
 	    // Code to run regardless of success or failure
 	    complete: function( xhr, status ) {
-	        alert( "The request is complete!" );
+	        //alert( "The request is complete!" );
 	    }
 	});
 
 	};
+	
+	
+	function  findPerson(){
+		//alert("values:" + $('#findinput3').val());
+		
+		$.ajax({
+
+		    // The URL for the request
+		    url: myUrl + "findperson.cgi",
+		 
+		    // The data to send (will be converted to a query string)
+		    data: {
+		        first: $('#findpersoninput1').val(),
+		        last:  $('#findpersoninput2').val(),
+		        email: $('#findpersoninput3').val()
+		    },
+		 
+		    // Whether this is a POST or GET request
+		    type: "POST",
+		 
+		    // The type of data we expect back
+		    dataType : "json",
+		 
+		    // Code to run if the request succeeds;
+		    // the response is passed to the function
+		    success: function( json ) {
+		        $( "<h1>" ).text( json.title ).appendTo( "body" );
+		        $( "<div class=\"content\">").html( json.html ).appendTo( "body" );
+		        
+		        $("#findpersonresult").html(" ResultCode:" + json.responsecode + " RecordId:" + json.id);
+		        //alert( "request id" + json.id); 
+		        
+		        
+		    },
+		 
+		    // Code to run if the request fails; the raw request and
+		    // status codes are passed to the function
+		    error: function( xhr, status, errorThrown ) {
+		        //alert( "Sorry, there was a problem!" );
+		        console.log( "Error: " + errorThrown );
+		        console.log( "Status: " + status );
+		        console.dir( xhr );
+		    },
+		 
+		    // Code to run regardless of success or failure
+		    complete: function( xhr, status ) {
+		        //alert( "The request is complete!" );
+		    }
+		});
+
+		};
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 function  myFunc(){
 
@@ -206,7 +327,7 @@ $.ajax({
     // Code to run if the request fails; the raw request and
     // status codes are passed to the function
     error: function( xhr, status, errorThrown ) {
-        alert( "Sorry, there was a problem!" );
+        //alert( "Sorry, there was a problem!" );
         console.log( "Error: " + errorThrown );
         console.log( "Status: " + status );
         console.dir( xhr );
@@ -214,7 +335,7 @@ $.ajax({
  
     // Code to run regardless of success or failure
     complete: function( xhr, status ) {
-        alert( "The request is complete!" );
+        //alert( "The request is complete!" );
     }
 });
 
