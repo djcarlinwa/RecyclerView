@@ -517,9 +517,9 @@ function  addPerson(){
 				    	alert("Hello" + json.toString());
 				    	
 				    	var _select = $('<select>');
-						$.each(json, function(recordid, recordtext) {
+						$.each(json, function(index, val) {
 						    _select.append(
-						            $('<option></option>').val(recordid).html(recordtext)
+						            $('<option></option>').val(val.recordid).html(val.recordtext)
 						        );
 						});
 					
