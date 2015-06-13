@@ -253,7 +253,7 @@ $(document).ready(function()
    {
    var newFindDeviceDiv = $(document.createElement('div')).attr("id", 'finddevicetextbox' + counter);
 
-   newTextBoxDiv.after().html('<label id="label' + i + '">Textbox #'+ counter + ' : </label>' +
+   newFindDeviceDiv.after().html('<label id="label' + i + '">Textbox #'+ counter + ' : </label>' +
     '<input type="text" name="textbox' + i + 
     '" id="textbox' + i + '" value="" >');
    
@@ -459,15 +459,9 @@ function  addPerson(){
 			 
 			    // Code to run if the request succeeds;
 			    // the response is passed to the function
-			    success: function( json ) {
-			        $( "<h1>" ).text( json.title ).appendTo( "body" );
-			        $( "<div class=\"content\">").html( json.html ).appendTo( "body" );
-			        
+			    success: function( json ) {    
 			        $("#finddeviceresult").html(" Response Code:" + json.responsecode + " RecordId:" + json.id);
 			        $("#finddevicetextdiv2").html(json.devicetypetext);
-			        //alert( "request id" + json.id); 
-			        
-			        
 			    },
 			 
 			    // Code to run if the request fails; the raw request and
