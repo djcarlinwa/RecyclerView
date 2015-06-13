@@ -140,8 +140,8 @@ $(document).ready(function()
   // modify the contents of the Add Device div set
   $("#adddevicelabeldiv0").html("Add Device"); 
   $("#adddevicetextdiv0").html("&nbsp;"); 
-  $("#adddevicelabeldiv1").text("Device MAC");
-  $("#adddevicelabeldiv2").text("Device Type");
+  $("#adddevicelabeldiv1").text("MAC");
+  $("#adddevicelabeldiv2").text("Type");
   $("#adddevicetextdiv2").html('<select id="adddeviceselector"</select>');
   
   //populate the drop down
@@ -224,62 +224,8 @@ $(document).ready(function()
   //contains one <hr>
   horizontalRuleDiv = $(document.createElement('div')).attr("id", 'horrule4' );
   horizontalRuleDiv.appendTo("#BodyDiv");
-  $("#horrule3").html(rule);
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-   
-   var newDiv = $(document.createElement('div')).attr("id", 'finddevicebuttondiv' );
-   newDiv.appendTo("#BodyDiv");
-   
-   var r= '<input type="button" id="Button3" value="Find"/>';
-   $("#ButtonDiv1").append(r);
-   
-   
-   $( "#Button3" ).click(function() {
-     findDevice();
-   });
- 
-   for (i = 0; i < 1; i++)
-   {
-   var newFindDeviceDiv = $(document.createElement('div')).attr("id", 'finddevicetextbox' + counter);
-
-   newFindDeviceDiv.after().html('<label id="label' + i + '">Textbox #'+ counter + ' : </label>' +
-    '<input type="text" name="textbox' + i + 
-    '" id="textbox' + i + '" value="" >');
-   
-   newFindDeviceDiv.appendTo("#BodyDiv");
-   }
-   
-   
-   for (i = 0; i < 5; i++)
-   {
-   var newTextBoxDiv = $(document.createElement('div')).attr("id", 'TextBoxDiv' + i);
-
-   newTextBoxDiv.after().html('<div id="finddiv' + i + '" style="float: left; width: 200px;">&nbsp;</div>' +
-    '<div style="float: left; width: 200px;">&nbsp;</div><div style="clear:left;"></div>');
-   
-   newTextBoxDiv.appendTo("#BodyDiv");
-   }
-   
-   $("#finddiv0").html("&nbsp;"); 
-   $("#finddiv1").text("Record Id");
-   $("#finddiv2").text("First");
-   $("#finddiv3").text("Last");
-   $("#finddiv4").text("Email");
+  $("#horrule4").html(rule);
 });
-
-
-
 
 function  addDevice(){
 	////alert("values:" + $('#findinput3').val());
