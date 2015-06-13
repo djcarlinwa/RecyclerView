@@ -461,7 +461,7 @@ function  addPerson(){
 			    // the response is passed to the function
 			    success: function( json ) {    
 			        $("#finddeviceresult").html(" Response Code:" + json.responsecode + " RecordId:" + json.id);
-			        $("#finddevicetextdiv2").html(json.devicetypetext);
+			        $("#finddevicetextdiv2").text(json.devicetypetext);
 			    },
 			 
 			    // Code to run if the request fails; the raw request and
