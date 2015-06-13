@@ -235,19 +235,19 @@ $(document).ready(function()
   
   for (i = 0; i < 3; i++)
   {
-    var addDeviceDiv = $(document.createElement('div')).attr("id", 'addsmsdevicediv' + i);
+    var addSmsDeviceDiv = $(document.createElement('div')).attr("id", 'addsmsdevicediv' + i);
 
-    addDeviceDiv.after().html('<div id="addsmsdevicelabeldiv' + i + '" style="float: left; width: 200px;">Textbox #'+ counter + ' : </div>' +
+    addSmsDeviceDiv.after().html('<div id="addsmsdevicelabeldiv' + i + '" style="float: left; width: 200px;">Textbox #'+ counter + ' : </div>' +
     	    '<div style="float: left; width: 200px;" id="addsmsdevicetextdiv' + i + '"> <input type="text" name="textbox' + i + 
     	    '" id="addsmsdeviceinput' + i + '" value="" ></div><div style="clear:left;"></div>');
    
-    addDeviceDiv.appendTo("#BodyDiv");
+    addSmsDeviceDiv.appendTo("#BodyDiv");
   }
  
   // modify the contents of the Add Device div set
-  $("#addsmsdevicelabeldiv0").html("Add Device"); 
+  $("#addsmsdevicelabeldiv0").html("Add SMS Device"); 
   $("#addsmsdevicetextdiv0").html("&nbsp;"); 
-  $("#addsmsdevicelabeldiv1").text("MAC");
+  $("#addsmsdevicelabeldiv1").text("SMS Phone Number");
   $("#addsmsdevicelabeldiv2").text("Type");
   $("#addsmsdevicetextdiv2").html('<select id="addsmsdeviceselector"</select>');
   
@@ -268,12 +268,12 @@ $(document).ready(function()
   });
   
   //Find Device Result
-  var addDeviceResultDiv = $(document.createElement('div')).attr("id", 'addsmsdeviceresultdiv' + i);
+  var addSmsDeviceResultDiv = $(document.createElement('div')).attr("id", 'addsmsdeviceresultdiv' + i);
 
-  addDeviceResultDiv.after().html('<div id="addsmsdeviceresultlabel' + "" + '" style="float: left; width: 200px;">Result</div>' +
+  addSmsDeviceResultDiv.after().html('<div id="addsmsdeviceresultlabel' + "" + '" style="float: left; width: 200px;">Result</div>' +
   '<div style="float: left; width: 200px;" id="addsmsdeviceresult' + "" + '"></div><div style="clear:left;"></div>');
    
-  addDeviceResultDiv.appendTo("#BodyDiv");
+  addSmsDeviceResultDiv.appendTo("#BodyDiv");
   
   //one div: horrule3
   //contains one <hr>
@@ -291,19 +291,19 @@ $(document).ready(function()
   
   for (i = 0; i < 3; i++)
   {
-    var findDeviceDiv = $(document.createElement('div')).attr("id", 'findsmsdevicediv' + i);
+    var findSmsDeviceDiv = $(document.createElement('div')).attr("id", 'findsmsdevicediv' + i);
 
-    findDeviceDiv.after().html('<div id="findsmsdevicelabeldiv' + i + '" style="float: left; width: 200px;">Textbox #'+ counter + ' : </div>' +
+    findSmsDeviceDiv.after().html('<div id="findsmsdevicelabeldiv' + i + '" style="float: left; width: 200px;">Textbox #'+ counter + ' : </div>' +
     	    '<div style="float: left; width: 200px;" id="findsmsdevicetextdiv' + i + '"> <input type="text" name="findsmsdevice' + i + 
     	    '" id="findsmsdeviceinput' + i + '" value="" ></div><div style="clear:left;"></div>');
    
-    findDeviceDiv.appendTo("#BodyDiv");
+    findSmsDeviceDiv.appendTo("#BodyDiv");
   }
  
   
-  $("#findsmsdevicelabeldiv0").html("Find Device"); 
+  $("#findsmsdevicelabeldiv0").html("Find SMS Device"); 
   $("#findsmsdevicetextdiv0").html("&nbsp;"); 
-  $("#findsmsdevicelabeldiv1").text("MAC");
+  $("#findsmsdevicelabeldiv1").text("SMS Phone Number");
   $("#findsmsdevicelabeldiv2").text("Type");
   
   //one div: findsmsdevicebuttondiv1
@@ -316,7 +316,7 @@ $(document).ready(function()
   $("#findsmsdevicebuttondiv1").html(r);
     
   $( "#findsmsdevicebutton1" ).click(function() {
-   findDevice();
+   findSmsDevice();
   });
   
   //Find Device Result
@@ -332,15 +332,6 @@ $(document).ready(function()
   horizontalRuleDiv = $(document.createElement('div')).attr("id", 'horrule6' );
   horizontalRuleDiv.appendTo("#BodyDiv");
   $("#horrule6").html(rule);
-  
-  
-  
-  
-  
-  
-  
-  
-  
   
 });
 
