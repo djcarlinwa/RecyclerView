@@ -187,7 +187,7 @@ $(document).ready(function()
     var findDeviceDiv = $(document.createElement('div')).attr("id", 'finddevicediv' + i);
 
     findDeviceDiv.after().html('<div id="finddevicelabeldiv' + i + '" style="float: left; width: 200px;">Textbox #'+ counter + ' : </div>' +
-    	    '<div style="float: left; width: 200px;" id="finddevicetextdiv' + i + '"> <input type="text" name="textbox' + i + 
+    	    '<div style="float: left; width: 200px;" id="finddevicetextdiv' + i + '"> <input type="text" name="finddevice' + i + 
     	    '" id="finddeviceinput' + i + '" value="" ></div><div style="clear:left;"></div>');
    
     findDeviceDiv.appendTo("#BodyDiv");
@@ -209,7 +209,7 @@ $(document).ready(function()
   $("#finddevicebuttondiv1").html(r);
     
   $( "#finddevicebutton1" ).click(function() {
-   findDeviceType();
+   findDevice();
   });
   
   //Find Device Result
