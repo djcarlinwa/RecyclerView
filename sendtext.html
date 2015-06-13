@@ -34,7 +34,7 @@ $(document).ready(function()
     addPersonDiv.appendTo("#BodyDiv");
   }
  
-  $("#addpersonlabeldiv0").html("Add Person Input"); 
+  $("#addpersonlabeldiv0").html("Add Person"); 
   $("#addpersontextdiv0").html("&nbsp;"); 
   $("#addpersonlabeldiv1").text("First Name");
   $("#addpersonlabeldiv2").text("Last Name");
@@ -56,7 +56,7 @@ $(document).ready(function()
   //Add Person Result
   var addPersonResultDiv = $(document.createElement('div')).attr("id", 'addpersonresultdiv' + i);
 
-  addPersonResultDiv.after().html('<div id="addpersonresultlabel' + "" + '" style="float: left; width: 200px;">Add Person Result</div>' +
+  addPersonResultDiv.after().html('<div id="addpersonresultlabel' + "" + '" style="float: left; width: 200px;">Result</div>' +
   '<div style="float: left; width: 200px;" id="addpersonresult' + "" + '"></div><div style="clear:left;"></div>');
    
   addPersonResultDiv.appendTo("#BodyDiv");
@@ -85,7 +85,7 @@ $(document).ready(function()
     findPersonDiv.appendTo("#BodyDiv");
   }
  
-  $("#findpersonlabeldiv0").html("Find Person Input"); 
+  $("#findpersonlabeldiv0").html("Find Person"); 
   $("#findpersontextdiv0").html("&nbsp;"); 
   $("#findpersonlabeldiv1").text("First Name");
   $("#findpersonlabeldiv2").text("Last Name");
@@ -107,7 +107,7 @@ $(document).ready(function()
   //Find Person Result
   var findPersonResultDiv = $(document.createElement('div')).attr("id", 'findpersonresultdiv' + i);
 
-  findPersonResultDiv.after().html('<div id="findpersonresultlabel' + "" + '" style="float: left; width: 200px;">Find Person Result</div>' +
+  findPersonResultDiv.after().html('<div id="findpersonresultlabel' + "" + '" style="float: left; width: 200px;">Result</div>' +
   '<div style="float: left; width: 200px;" id="findpersonresult' + "" + '"></div><div style="clear:left;"></div>');
    
   findPersonResultDiv.appendTo("#BodyDiv");
@@ -138,7 +138,7 @@ $(document).ready(function()
   }
  
   // modify the contents of the Add Device div set
-  $("#adddevicelabeldiv0").html("Add Client-Device Input"); 
+  $("#adddevicelabeldiv0").html("Add Client"); 
   $("#adddevicetextdiv0").html("&nbsp;"); 
   $("#adddevicelabeldiv1").text("Device MAC");
   $("#adddevicelabeldiv2").text("Device Type");
@@ -163,7 +163,7 @@ $(document).ready(function()
   //Find Device Result
   var addDeviceResultDiv = $(document.createElement('div')).attr("id", 'adddeviceresultdiv' + i);
 
-  addDeviceResultDiv.after().html('<div id="adddeviceresultlabel' + "" + '" style="float: left; width: 200px;">Find Device Result</div>' +
+  addDeviceResultDiv.after().html('<div id="adddeviceresultlabel' + "" + '" style="float: left; width: 200px;">Result</div>' +
   '<div style="float: left; width: 200px;" id="adddeviceresult' + "" + '"></div><div style="clear:left;"></div>');
    
   addDeviceResultDiv.appendTo("#BodyDiv");
@@ -194,7 +194,7 @@ $(document).ready(function()
   }
  
   
-  $("#finddevicelabeldiv0").html("Find Client Device Input"); 
+  $("#finddevicelabeldiv0").html("Find Device"); 
   $("#finddevicetextdiv0").html("&nbsp;"); 
   $("#finddevicelabeldiv1").text("Device MAC");
   
