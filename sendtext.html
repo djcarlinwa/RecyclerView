@@ -442,17 +442,17 @@ function  addPerson(){
 			$.ajax({
 
 			    // The URL for the request
-			    url: myUrl + "findperson.cgi",
+			    url: myUrl + "finddevice.cgi",
 			 
 			    // The data to send (will be converted to a query string)
 			    data: {
-			       // first: $('#findpersoninput1').val(),
+			          mac: $('#finddeviceinput1').val(),
 			       // last:  $('#findpersoninput2').val(),
 			       // email: $('#findpersoninput3').val()
 			    },
 			 
 			    // Whether this is a POST or GET request
-			    type: "GET",
+			    type: "POST",
 			 
 			    // The type of data we expect back
 			    dataType : "json",
@@ -464,6 +464,7 @@ function  addPerson(){
 			        $( "<div class=\"content\">").html( json.html ).appendTo( "body" );
 			        
 			        $("#finddeviceresult").html(" Response Code:" + json.responsecode + " RecordId:" + json.id);
+			        $("#finddevicetextdiv2").html(json.devicetypetext);
 			        //alert( "request id" + json.id); 
 			        
 			        
