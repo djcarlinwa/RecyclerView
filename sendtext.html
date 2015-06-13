@@ -225,7 +225,182 @@ $(document).ready(function()
   horizontalRuleDiv = $(document.createElement('div')).attr("id", 'horrule4' );
   horizontalRuleDiv.appendTo("#BodyDiv");
   $("#horrule4").html(rule);
+  
+//Add SMS Device
+  //two divs: adddevicediv + i
+  //addsmsdevicediv  contains two child divs which float: left;
+  //child div: addsmsdevicelabeldiv + i
+  //child div: addsmsdevicetextdiv + i
+  //input:     addsmsdeviceinput + i
+  
+  for (i = 0; i < 3; i++)
+  {
+    var addDeviceDiv = $(document.createElement('div')).attr("id", 'addsmsdevicediv' + i);
+
+    addDeviceDiv.after().html('<div id="addsmsdevicelabeldiv' + i + '" style="float: left; width: 200px;">Textbox #'+ counter + ' : </div>' +
+    	    '<div style="float: left; width: 200px;" id="addsmsdevicetextdiv' + i + '"> <input type="text" name="textbox' + i + 
+    	    '" id="addsmsdeviceinput' + i + '" value="" ></div><div style="clear:left;"></div>');
+   
+    addDeviceDiv.appendTo("#BodyDiv");
+  }
+ 
+  // modify the contents of the Add Device div set
+  $("#addsmsdevicelabeldiv0").html("Add Device"); 
+  $("#addsmsdevicetextdiv0").html("&nbsp;"); 
+  $("#addsmsdevicelabeldiv1").text("MAC");
+  $("#addsmsdevicelabeldiv2").text("Type");
+  $("#addsmsdevicetextdiv2").html('<select id="addsmsdeviceselector"</select>');
+  
+  //populate the drop down
+  findDeviceType();	  
+
+  //one div: addsmsdevicebuttondiv1
+  //contains one button
+  var addDeviceButtonDiv = $(document.createElement('div')).attr("id", 'addsmsdevicebuttondiv1' );
+  addDeviceButtonDiv.appendTo("#BodyDiv");
+   
+  var r= '<input type="button" id="addsmsdevicebutton1" value="Add Device"/>';
+  
+  $("#addsmsdevicebuttondiv1").html(r);
+    
+  $( "#addsmsdevicebutton1" ).click(function() {
+   addSmsDevice();
+  });
+  
+  //Find Device Result
+  var addDeviceResultDiv = $(document.createElement('div')).attr("id", 'addsmsdeviceresultdiv' + i);
+
+  addDeviceResultDiv.after().html('<div id="addsmsdeviceresultlabel' + "" + '" style="float: left; width: 200px;">Result</div>' +
+  '<div style="float: left; width: 200px;" id="addsmsdeviceresult' + "" + '"></div><div style="clear:left;"></div>');
+   
+  addDeviceResultDiv.appendTo("#BodyDiv");
+  
+  //one div: horrule3
+  //contains one <hr>
+  horizontalRuleDiv = $(document.createElement('div')).attr("id", 'horrule5' );
+  horizontalRuleDiv.appendTo("#BodyDiv");
+  $("#horrule5").html(rule);
+  
+  
+  //Find SMS Device
+  //two divs: findsmsdevicediv + i
+  //findsmsdevicediv  contains two child divs which float: left;
+  //child div: findsmsdevicelabeldiv + i
+  //child div: findsmsdevicetextdiv + i
+  //input:     findsmsdeviceinput + i
+  
+  for (i = 0; i < 3; i++)
+  {
+    var findDeviceDiv = $(document.createElement('div')).attr("id", 'findsmsdevicediv' + i);
+
+    findDeviceDiv.after().html('<div id="findsmsdevicelabeldiv' + i + '" style="float: left; width: 200px;">Textbox #'+ counter + ' : </div>' +
+    	    '<div style="float: left; width: 200px;" id="findsmsdevicetextdiv' + i + '"> <input type="text" name="findsmsdevice' + i + 
+    	    '" id="findsmsdeviceinput' + i + '" value="" ></div><div style="clear:left;"></div>');
+   
+    findDeviceDiv.appendTo("#BodyDiv");
+  }
+ 
+  
+  $("#findsmsdevicelabeldiv0").html("Find Device"); 
+  $("#findsmsdevicetextdiv0").html("&nbsp;"); 
+  $("#findsmsdevicelabeldiv1").text("MAC");
+  $("#findsmsdevicelabeldiv2").text("Type");
+  
+  //one div: findsmsdevicebuttondiv1
+  //contains one button
+  var findDeviceButtonDiv = $(document.createElement('div')).attr("id", 'findsmsdevicebuttondiv1' );
+  findDeviceButtonDiv.appendTo("#BodyDiv");
+   
+  var r= '<input type="button" id="findsmsdevicebutton1" value="Find Device"/>';
+  
+  $("#findsmsdevicebuttondiv1").html(r);
+    
+  $( "#findsmsdevicebutton1" ).click(function() {
+   findDevice();
+  });
+  
+  //Find Device Result
+  var findDeviceResultDiv = $(document.createElement('div')).attr("id", 'findsmsdeviceresultdiv' + i);
+
+  findDeviceResultDiv.after().html('<div id="findsmsdeviceresultlabel' + "" + '" style="float: left; width: 200px;">Find Device Result</div>' +
+  '<div style="float: left; width: 200px;" id="findsmsdeviceresult' + "" + '"></div><div style="clear:left;"></div>');
+   
+  findDeviceResultDiv.appendTo("#BodyDiv");
+  
+  //one div: horrule4
+  //contains one <hr>
+  horizontalRuleDiv = $(document.createElement('div')).attr("id", 'horrule6' );
+  horizontalRuleDiv.appendTo("#BodyDiv");
+  $("#horrule6").html(rule);
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
 });
+
+
+function  findSmsDevice(){
+	//alert("values:" + $('#findinput3').val());
+	
+	$.ajax({
+
+	    // The URL for the request
+	    url: myUrl + "finddevice.cgi",
+	 
+	    // The data to send (will be converted to a query string)
+	    data: {
+	          mac: $('#finddeviceinput1').val(),
+	       // last:  $('#findpersoninput2').val(),
+	       // email: $('#findpersoninput3').val()
+	    },
+	 
+	    // Whether this is a POST or GET request
+	    type: "POST",
+	 
+	    // The type of data we expect back
+	    dataType : "json",
+	 
+	    // Code to run if the request succeeds;
+	    // the response is passed to the function
+	    success: function( json ) {    
+	        $("#finddeviceresult").html(" Response Code:" + json.responsecode + " RecordId:" + json.id);
+	        $("#finddevicetextdiv2").text(json.devicetypetext);
+	    },
+	 
+	    // Code to run if the request fails; the raw request and
+	    // status codes are passed to the function
+	    error: function( xhr, status, errorThrown ) {
+	        //alert( "Sorry, there was a problem!" );
+	        console.log( "Error: " + errorThrown );
+	        console.log( "Status: " + status );
+	        console.dir( xhr );
+	    },
+	 
+	    // Code to run regardless of success or failure
+	    complete: function( xhr, status ) {
+	        //alert( "The request is complete!" );
+	    }
+	});
+
+	};
+	
+
+
+
+
+
+
+
+
+
+
+
 
 function  addDevice(){
 	////alert("values:" + $('#findinput3').val());
