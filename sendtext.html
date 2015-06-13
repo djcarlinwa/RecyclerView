@@ -45,7 +45,7 @@ $(document).ready(function()
   var buttonDiv = $(document.createElement('div')).attr("id", 'buttondiv1' );
   buttonDiv.appendTo("#BodyDiv");
    
-  var r= '<input type="button" id="addbutton1" value="Add"/>';
+  var r= '<input type="button" id="addbutton1" value="Add Person"/>';
   
   $("#buttondiv1").html(r);
     
@@ -96,7 +96,7 @@ $(document).ready(function()
   var findButtonDiv = $(document.createElement('div')).attr("id", 'findbuttondiv1' );
   findButtonDiv.appendTo("#BodyDiv");
    
-  var r= '<input type="button" id="findbutton1" value="Find"/>';
+  var r= '<input type="button" id="findbutton1" value="Find Person"/>';
   
   $("#findbuttondiv1").html(r);
     
@@ -138,7 +138,7 @@ $(document).ready(function()
   }
  
   // modify the contents of the Add Device div set
-  $("#adddevicelabeldiv0").html("Add Client"); 
+  $("#adddevicelabeldiv0").html("Add Device"); 
   $("#adddevicetextdiv0").html("&nbsp;"); 
   $("#adddevicelabeldiv1").text("Device MAC");
   $("#adddevicelabeldiv2").text("Device Type");
@@ -182,7 +182,7 @@ $(document).ready(function()
   //child div: finddevicetextdiv + i
   //input:     finddeviceinput + i
   
-  for (i = 0; i < 2; i++)
+  for (i = 0; i < 3; i++)
   {
     var findDeviceDiv = $(document.createElement('div')).attr("id", 'finddevicediv' + i);
 
@@ -196,7 +196,8 @@ $(document).ready(function()
   
   $("#finddevicelabeldiv0").html("Find Device"); 
   $("#finddevicetextdiv0").html("&nbsp;"); 
-  $("#finddevicelabeldiv1").text("Device MAC");
+  $("#finddevicelabeldiv1").text("MAC");
+  $("#finddevicelabeldiv2").text("Type");
   
   //one div: finddevicebuttondiv1
   //contains one button
