@@ -407,12 +407,9 @@ function  addSmsNumber(){
 	    // Code to run if the request succeeds;
 	    // the response is passed to the function
 	    success: function( json ) {
-	        $( "<h1>" ).text( json.title ).appendTo( "body" );
-	        $( "<div class=\"content\">").html( json.html ).appendTo( "body" );
 	        
-	        $("#adddeviceresult").html(" Response Code:" + json.responsecode + " RecordId:" + json.id);
+	        $("#addsmsdevice").html(" Response Code:" + json.responsecode + " RecordId:" + json.id);
 	        //alert( "request id" + json.id); 
-	        
 	        
 	    },
 	 
