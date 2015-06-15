@@ -3,8 +3,6 @@
  */
 
 
-<SCRIPT LANGUAGE="JavaScript">
-
 
 function  findSmsDevice(){
 	//alert("values:" + $('#findinput3').val());
@@ -425,4 +423,3 @@ $.ajax({
 };
 
 
-</SCRIPT>
