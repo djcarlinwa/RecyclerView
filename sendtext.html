@@ -233,7 +233,7 @@ $(document).ready(function()
   //child div: addsmsdevicetextdiv + i
   //input:     addsmsdeviceinput + i
   
-  for (i = 0; i < 3; i++)
+  for (i = 0; i < 5; i++)
   {
     var addSmsDeviceDiv = $(document.createElement('div')).attr("id", 'addsmsdevicediv' + i);
 
@@ -247,8 +247,10 @@ $(document).ready(function()
   // modify the contents of the Add Device div set
   $("#addsmsdevicelabeldiv0").html("Add SMS Number"); 
   $("#addsmsdevicetextdiv0").html("&nbsp;"); 
-  $("#addsmsdevicelabeldiv1").text("SMS Phone Number");
-  $("#addsmsdevicelabeldiv2").text("Person Id");
+  $("#addsmsdevicelabeldiv1").text("SMS Country Code");
+  $("#addsmsdevicelabeldiv2").text("SMS Area Code");
+  $("#addsmsdevicelabeldiv3").text("SMS Phone Number");
+  $("#addsmsdevicelabeldiv4").text("Person Id");
  
   //one div: addsmsdevicebuttondiv1
   //contains one button
