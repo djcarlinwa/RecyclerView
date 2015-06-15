@@ -2,20 +2,22 @@
 <html>
 <head>
 <meta charset="UTF-8">
-
+<script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/knockout/3.3.0/knockout-min.js'></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript" src="http://wallplatecharger.com" type="text/javascript" charset="utf-8"></script>
 <script type="text/javascript">
 
 var wpcGet ="http://wallplatecharger.com:8080/TomcatEight/Medications?";
 var wpcGetNames = wpcGet + "namesofar=";
 var wpcSetName  = wpcGet + "setname=";
 var myUrl = "http://wallplatecharger.com/cgi-bin/";
+var i = 1;
 var counter = 1;
-
 
 $(document).ready(function()
 		{
 		  
- for (i = 0; i < 5; i++)
+  for (i = 0; i < 5; i++)
   {
     var addSmsDeviceDiv = $(document.createElement('div')).attr("id", 'addsmsdevicediv' + i);
 
@@ -33,7 +35,7 @@ $(document).ready(function()
   $("#addsmsdevicelabeldiv2").text("SMS Area Code");
   $("#addsmsdevicelabeldiv3").text("SMS Phone Number");
   $("#addsmsdevicelabeldiv4").text("Person Id");
-		}
+		});
 </script>
 
 <title>Insert title here</title>
