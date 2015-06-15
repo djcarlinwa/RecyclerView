@@ -11,6 +11,10 @@ var wpcSetName  = wpcGet + "setname=";
 var myUrl = "http://wallplatecharger.com/cgi-bin/";
 var counter = 1;
 
+
+$(document).ready(function()
+		{
+		  
  for (i = 0; i < 5; i++)
   {
     var addSmsDeviceDiv = $(document.createElement('div')).attr("id", 'addsmsdevicediv' + i);
@@ -29,7 +33,7 @@ var counter = 1;
   $("#addsmsdevicelabeldiv2").text("SMS Area Code");
   $("#addsmsdevicelabeldiv3").text("SMS Phone Number");
   $("#addsmsdevicelabeldiv4").text("Person Id");
-
+		}
 </script>
 
 <title>Insert title here</title>
