@@ -255,12 +255,12 @@ $(document).ready(function()
   var addDeviceButtonDiv = $(document.createElement('div')).attr("id", 'addsmsdevicebuttondiv1' );
   addDeviceButtonDiv.appendTo("#BodyDiv");
    
-  var r= '<input type="button" id="addsmsdevicebutton1" value="Add Device"/>';
+  var r= '<input type="button" id="addsmsdevicebutton1" value="Add SMS Number"/>';
   
   $("#addsmsdevicebuttondiv1").html(r);
     
   $( "#addsmsdevicebutton1" ).click(function() {
-   addSmsDevice();
+   addSmsNumber();
   });
   
   //Find Device Result
