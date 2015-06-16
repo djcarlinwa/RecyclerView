@@ -89,8 +89,8 @@ function renderDashBoard(){
 	    newDashboardDiv.after().html('<div id="dashboardlabeldiv' + i + '" style="float: left; width: 200px;">Textbox #'+ counter + ' : </div>' +
 	    	    '<div style="float: left; width: 200px;" id="dashboardtextdiv' + i + '"> <input type="text" name="dashboardinput' + i + 
 	    	    '" id="dashboardinput' + i + '" value="" ></div><div style="clear:left;"></div>');
-	   // addNewAccountDiv.appendTo("#BodyDiv");
-	    $("#BodyDiv").html(newDashboardDiv);
+	    // addNewAccountDiv.appendTo("#BodyDiv");
+	    newDashboardDiv.appendTo(newDashboardDiv);
 	  }	 
 	  // modify the contents of the Add Device div set
 	  $("#dashboardlabeldiv0").html("Log On to ImOkBox"); 
@@ -118,7 +118,7 @@ function renderDashBoard(){
 	  newDashboardDiv.after().html('<div id="dashboardlabeldiv' + "" + '" style="float: left; width: 200px;">Result</div>' +
 	  '<div style="float: left; width: 200px;" id="dashboardresult' + "" + '"></div><div style="clear:left;"></div>');
 	   
-	  addNewAccountDiv.appendTo("#BodyDiv");
+	  newDashboardDiv.appendTo("#BodyDiv");
 	
 }
 
