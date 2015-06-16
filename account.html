@@ -82,7 +82,10 @@ function  addAccount(){
 
 
 function renderDashBoard(){
-	 for (i = 0; i < 4; i++)
+	 
+	  $('#BodyDiv').html("");
+	
+	  for (i = 0; i < 4; i++)
 	  {
 	    var newDashboardDiv = $(document.createElement('div')).attr("id", 'dashboarddiv' + i);
 
