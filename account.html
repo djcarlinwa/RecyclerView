@@ -84,13 +84,13 @@ function  addAccount(){
 function renderDashBoard(){
 	 for (i = 0; i < 4; i++)
 	  {
-	    var addNewAccountDiv = $(document.createElement('div')).attr("id", 'addNewAccountdiv' + i);
+	    var newDashboardDiv = $(document.createElement('div')).attr("id", 'dashboarddiv' + i);
 
-	    addNewAccountDiv.after().html('<div id="dashboardlabeldiv' + i + '" style="float: left; width: 200px;">Textbox #'+ counter + ' : </div>' +
+	    newDashboardDiv.after().html('<div id="dashboardlabeldiv' + i + '" style="float: left; width: 200px;">Textbox #'+ counter + ' : </div>' +
 	    	    '<div style="float: left; width: 200px;" id="dashboardtextdiv' + i + '"> <input type="text" name="dashboardinput' + i + 
-	    	    '" id="addaccountinput' + i + '" value="" ></div><div style="clear:left;"></div>');
+	    	    '" id="dashboardinput' + i + '" value="" ></div><div style="clear:left;"></div>');
 	   // addNewAccountDiv.appendTo("#BodyDiv");
-	    $("#BodyDiv").html(addNewAccountDiv);
+	    $("#BodyDiv").html(newDashboardDiv);
 	  }	 
 	  // modify the contents of the Add Device div set
 	  $("#dashboardlabeldiv0").html("Log On to ImOkBox"); 
@@ -113,22 +113,14 @@ function renderDashBoard(){
 	  });
 	  
 	  //Add Person Result
-	  var addNewAccountDiv = $(document.createElement('div')).attr("id", 'addaccountlabel' + i);
+	  var newDashboardDiv = $(document.createElement('div')).attr("id", 'addaccountlabel' + i);
 
-	  addNewAccountDiv.after().html('<div id="addaccountlabel' + "" + '" style="float: left; width: 200px;">Result</div>' +
-	  '<div style="float: left; width: 200px;" id="addaccountresult' + "" + '"></div><div style="clear:left;"></div>');
+	  newDashboardDiv.after().html('<div id="dashboardlabeldiv' + "" + '" style="float: left; width: 200px;">Result</div>' +
+	  '<div style="float: left; width: 200px;" id="dashboardresult' + "" + '"></div><div style="clear:left;"></div>');
 	   
 	  addNewAccountDiv.appendTo("#BodyDiv");
-
-
-	
-	
-	
 	
 }
-
-
-
 
 function renderNewAccount(){
 	
