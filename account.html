@@ -82,21 +82,21 @@ function  addAccount(){
 
 
 function renderDashBoard(){
-	 for (i = 0; i < 3; i++)
+	 for (i = 0; i < 4; i++)
 	  {
 	    var addNewAccountDiv = $(document.createElement('div')).attr("id", 'addNewAccountdiv' + i);
 
 	    addNewAccountDiv.after().html('<div id="dashboardlabeldiv' + i + '" style="float: left; width: 200px;">Textbox #'+ counter + ' : </div>' +
 	    	    '<div style="float: left; width: 200px;" id="dashboardtextdiv' + i + '"> <input type="text" name="dashboardinput' + i + 
 	    	    '" id="addaccountinput' + i + '" value="" ></div><div style="clear:left;"></div>');
-	    addNewAccountDiv.appendTo("#BodyDiv");
+	   // addNewAccountDiv.appendTo("#BodyDiv");
 	    $("#BodyDiv").html(addNewAccountDiv);
 	  }	 
 	  // modify the contents of the Add Device div set
-	  $("#dashboarddiv0").html("Create New Account"); 
-	  $("#dashboarddiv0").html("&nbsp;"); 
-	  $("#dashboarddiv1").text("eMail Address");
-	  $("#dashboarddiv2").text("Password");
+	  $("#dashboardlabeldiv0").html("Log On to ImOkBox"); 
+	  $("#dashboardtextdiv0").html("&nbsp;"); 
+	  $("#dashboardlabeldiv1").text("eMail Address");
+	  $("#dashboardlabeldiv2").text("Password");
 	  
 
 	//one div: ButtonDiv1
@@ -104,7 +104,7 @@ function renderDashBoard(){
 	  var buttonDiv = $(document.createElement('div')).attr("id", 'buttondiv1' );
 	  buttonDiv.appendTo("#BodyDiv");
 	   
-	  var r= '<input type="button" id="addbutton1" value="Create Account"/>';
+	  var r= '<input type="button" id="addbutton1" value="Log On"/>';
 	  
 	  $("#buttondiv1").html(r);
 	    
