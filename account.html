@@ -19,6 +19,72 @@ $(document).ready(function()
   renderNewAccount();		  
 });
 
+function  logOn(){
+	////alert("values:" + $('#findinput3').val());
+	
+	$.ajax({
+
+	    // The URL for the request
+	    url: myUrl + "logon.cgi",
+	 
+	    // The data to send (will be converted to a query string)
+	    data: {
+
+	        password:  $('#addaccountinput2').val(),
+	        email: $('#addaccountinput1').val()
+	    },
+	 
+	    // Whether this is a POST or GET request
+	    type: "POST",
+	 
+	    // The type of data we expect back
+	    dataType : "json",
+	 
+	    // Code to run if the request succeeds;
+	    // the response is passed to the function
+	    success: function( json ) {
+	     
+	        
+	        $("#logonresult").html(" Response Code:" + json.responsecode + " RecordId:" + json.uuid);
+	        
+	        if (json.responsecode == 1)
+	        {
+	        	
+	        	
+	        	renderDashboard(json.uuid);
+	        	
+	        	
+	        }
+	        
+	        //alert( "request id" + json.id); 
+	        
+	        
+	    },
+	 
+	    // Code to run if the request fails; the raw request and
+	    // status codes are passed to the function
+	    error: function( xhr, status, errorThrown ) {
+	        //alert( "Sorry, there was a problem!" );
+	        console.log( "Error: " + errorThrown );
+	        console.log( "Status: " + status );
+	        console.dir( xhr );
+	    },
+	 
+	    // Code to run regardless of success or failure
+	    complete: function( xhr, status ) {
+	        //alert( "The request is complete!" );
+	    }
+	});
+
+	};
+	
+
+
+
+
+
+
+
 
 function  addAccount(){
 	////alert("values:" + $('#findinput3').val());
@@ -52,7 +118,7 @@ function  addAccount(){
 	        {
 	        	
 	        	
-	        	renderDashBoard();
+	        	renderLogOn();
 	        	
 	        	
 	        }
@@ -81,11 +147,11 @@ function  addAccount(){
 	
 
 
-function renderDashBoard(){
+function renderLogOn(){
 	 
 	  $('#BodyDiv').html("");
 	
-	  for (i = 0; i < 4; i++)
+	  for (i = 0; i < 3; i++)
 	  {
 	    var newDashboardDiv = $(document.createElement('div')).attr("id", 'dashboarddiv' + i);
 
@@ -115,7 +181,7 @@ function renderDashBoard(){
 	  $("#buttondiv1").html(r);
 	    
 	  $( "#addbutton1" ).click(function() {
-	   addAccount();
+	   logOn();
 	  });
 	  
 	  //Add Person Result
@@ -127,6 +193,58 @@ function renderDashBoard(){
 	  newDashboardDiv.appendTo("#BodyDiv");
 	
 }
+
+function renderDashboard( uuid ){
+	 
+	  $('#BodyDiv').html("");
+	
+	  for (i = 0; i < 3; i++)
+	  {
+	    var newDashboardDiv = $(document.createElement('div')).attr("id", 'dashboarddiv' + i);
+
+	    newDashboardDiv.after().html('<div id="dashboardlabeldiv' + i + '" style="float: left; width: 200px;">Textbox #'+ counter + ' : </div>' +
+	    	    '<div style="float: left; width: 200px;" id="dashboardtextdiv' + i + '"> <input type="text" name="dashboardinput' + i + 
+	    	    '" id="dashboardinput' + i + '" value="" ></div><div style="clear:left;"></div>');
+	    // addNewAccountDiv.appendTo("#BodyDiv");
+	    newDashboardDiv.appendTo("#BodyDiv");
+	  }	 
+	  
+	 
+	 
+	  // modify the contents of the Add Device div set
+	  $("#dashboardlabeldiv0").html("ImOkBox Dashboard"); 
+	  $("#dashboardtextdiv0").html("&nbsp;"); 
+	  $("#dashboardtextdiv0").text(uuid); 
+	  $("#dashboardlabeldiv1").text("UUID");
+	  $("#dashboardlabeldiv2").text("Password");
+	  
+
+	//one div: ButtonDiv1
+	  //contains one button
+	  var buttonDiv = $(document.createElement('div')).attr("id", 'buttondiv1' );
+	  buttonDiv.appendTo("#BodyDiv");
+	   
+	  var r= '<input type="button" id="addbutton1" value="Log On"/>';
+	  
+	  $("#buttondiv1").html(r);
+	    
+	  $( "#addbutton1" ).click(function() {
+	   logOn();
+	  });
+	  
+	  //Add Person Result
+	  var newDashboardDiv = $(document.createElement('div')).attr("id", 'addaccountlabel' + i);
+
+	  newDashboardDiv.after().html('<div id="dashboardlabeldiv' + "" + '" style="float: left; width: 200px;">Result</div>' +
+	  '<div style="float: left; width: 200px;" id="dashboardresult' + "" + '"></div><div style="clear:left;"></div>');
+	   
+	  newDashboardDiv.appendTo("#BodyDiv");
+	
+}
+
+
+
+
 
 function renderNewAccount(){
 	
