@@ -229,7 +229,7 @@ function renderDashboard( uuid ){
 	  });
 	  $("#dashboardtextdiv5").html("&nbsp;"); 
 	  
-	  $("dashboarddiv6").html("<hr>");
+	  $("#dashboarddiv6").html("<hr>");
 	  
 	  //button2
 	  var divnum = 7;
@@ -248,6 +248,11 @@ function renderDashboard( uuid ){
 	   addSmsNumber();
 	  });
 	  
+	  
+
+	  
+	  
+	  
 	  //input for country, areacode, number
 	  var inputNum = 7;
 	  r = '<input type="text" name="dashboardinput' + inputNum + 
@@ -262,17 +267,27 @@ function renderDashboard( uuid ){
 	    '" id="input' + inputNum + '" value="Number" >';
 	  $("#dashboardtextdiv7").append(r);	  
 	  
+
+	  divnum = 8 ;
+
+	  $("#dashboarddiv" + divnum).html("<hr>");
+	  divnum++;
 	  
 	  //select1
 	  var selectnum = 1;
 	  r = '<select id="select' + selectnum +'"></select>'
-	  $("#dashboardtextdiv8").html(r);
+	  $("#dashboardtextdiv" + divnum).html(r);
 	  selectnum++;
 	  r = '<select id="select' + selectnum +'"></select>' 
-	  $("#dashboardtextdiv9").html(r);
+	  $("#dashboardtextdiv" + divnum).html(r);
 	  
-	  divnum = 10;
+	  
+	  
+	  
+	  
 
+	  $("#dashboarddiv" + divnum).html("<hr>");
+	  
 	  $("#dashboardlabeldiv" + divnum).text("Test Message");
 	  divnum++;
 	  $("#dashboardlabeldiv" + divnum).text("Test Number");
