@@ -245,7 +245,7 @@ function renderDashboard( uuid ){
 	  r= '<input type="button" id="addbutton' + buttonnum +  '" value="Add SMS Number"/>';
 	  $("#dashboardlabeldiv" + divnum).html(r);
 	  $( "#addbutton" + buttonnum ).click(function() {
-	   addSmsNumber();
+	   addSmsNumberByUuid();
 	  });
 	  
       //input for country, areacode, number
@@ -309,8 +309,7 @@ function renderDashboard( uuid ){
 
 
 
-function  addSmsNumber(){
-	//alert("values:" + $('#findinput3').val());
+function  addSmsNumberByUuid(){
 	
 	$.ajax({
 
