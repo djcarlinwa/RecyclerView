@@ -220,21 +220,16 @@ function renderDashboard( uuid ){
 	  $("#dashboardlabeldiv2").text("First");
 	  $("#dashboardlabeldiv3").text("Last");
 	  $("#dashboardlabeldiv4").text("Device MAC");
-	  
-
-	  
-	  
-	  
-	  
-	  
-	  
-	  
+	
 	  //button1
 	  var r = '<input type="button" id="addbutton1" value="Update Record"/>';
 	  $("#dashboardlabeldiv5").html(r);
 	  $( "#addbutton1" ).click(function() {
 	   updateAccount();
 	  });
+	  $("#dashboardtextdiv5").html("&nbsp;"); 
+	  
+	  
 	  
 	  //button2
 	  r= '<input type="button" id="addbutton2" value="Add Message"/>';
