@@ -249,7 +249,28 @@ function renderDashboard( uuid ){
 	  $("#dashboardlabeldiv8").html(r);
 	  selectnum++;
 	  r = '<select id="select' + selectnum +'"></select>' 
-	  $("#dashboardlabeldiv8" + buttonnum).append(r);
+	  $("#dashboardlabeldiv8").append(r);
+	  
+
+	  $("#dashboardlabeldiv9").text("Test Message");
+	  $("#dashboardlabeldiv10").text("Test Number");
+	  
+	  
+	  //button4
+	  var buttonnum = 4;
+	  r= '<input type="button" id="addbutton' + buttonnum +  '" value="Send Test"/>';
+	  $("#dashboardlabeldiv11").html(r);
+	  $( "#addbutton" + buttonnum ).click(function() {
+	   sendSms();
+	  });
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
 }
 
 function renderNewAccount(){
