@@ -315,7 +315,7 @@ function  addSmsNumberByUuid(){
 
 	    // The URL for the request
 	    url: myUrl + "addsmsnumberbyuuid.cgi",
-	 
+		alert("OK! " + myUrl + "addsmsnumberbyuuid.cgi");
 	    // The data to send (will be converted to a query string)
 	    data: {
 	    	//my $areacode           = $query->param('areacode');
@@ -348,8 +348,10 @@ function  addSmsNumberByUuid(){
 	    // Code to run if the request succeeds;
 	    // the response is passed to the function
 	    success: function( json ) {    
-	        $("#finddeviceresult").html(" Response Code:" + json.responsecode + " RecordId:" + json.id);
-	        $("#finddevicetextdiv2").text(json.devicetypetext);
+	    	
+	    	alert("OK!" + json.responsecode);
+	       // $("#finddeviceresult").html(" Response Code:" + json.responsecode + " RecordId:" + json.id);
+	       // $("#finddevicetextdiv2").text(json.devicetypetext);
 	    },
 	 
 	    // Code to run if the request fails; the raw request and
