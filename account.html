@@ -225,108 +225,32 @@ function renderDashboard( uuid ){
 	  var r= '<input type="button" id="addbutton1" value="Update Record"/>';
 	  $("#dashboardlabeldiv5").html(r);
 	  $( "#addbutton1" ).click(function() {
-	   addSmsNumber();
+	   updateAccount();
 	  });
 	  
 	  //button2
 	  r= '<input type="button" id="addbutton2" value="Add Message"/>';
-	  
-	  $("#dashboardlabeldiv5").html(r);
-	    
+	  $("#dashboardlabeldiv6").html(r);  
 	  $( "#addbutton2" ).click(function() {
 	   addSmsMessage();
 	  });
 	  
 	  //button3
 	  var buttonnum = 3;
-	   
 	  r= '<input type="button" id="addbutton' + buttonnum +  '" value="Add SMS Number"/>';
-	  
-	  $("#dashboardlabeldiv6").html(r);
-	    
+	  $("#dashboardlabeldiv7").html(r);
 	  $( "#addbutton" + buttonnum ).click(function() {
 	   addSmsNumber();
 	  });
 	  
-	  
-	  
+	  //select1
 	  var selectnum = 1;
 	  r = '<select id="select' + selectnum +'"></select>'
-	  $("#dashboardlabeldiv7").html(r);
+	  $("#dashboardlabeldiv8").html(r);
 	  selectnum++;
 	  r = '<select id="select' + selectnum +'"></select>' 
-	  $("#dashboardlabeldiv7" + buttonnum).append(r);
-	  
-	  
-	  
-	  
-	  
-	  //Add Person Result
-	  //var newDashboardDiv = $(document.createElement('div')).attr("id", 'addaccountlabel' + i);
-
-	  //newDashboardDiv.after().html('<div id="dashboardlabeldiv' + "" + '" style="float: left; width: 200px;">Result</div>' +
-	  //'<div style="float: left; width: 200px;" id="dashboardresult' + "" + '"></div><div style="clear:left;"></div>');
-	   
-	  //newDashboardDiv.appendTo("#BodyDiv");
-	
-	  //one div: ButtonDiv2
-	  //contains one button
-	  buttonDiv = $(document.createElement('div')).attr("id", 'buttondiv2' );
-	  buttonDiv.appendTo("#BodyDiv");
-	   
-	  var r= '<input type="button" id="addbutton2" value="Add Message"/>';
-	  
-	  $("#buttondiv2").html(r);
-	    
-	  $( "#addbutton2" ).click(function() {
-	   addSmsMessage();
-	  });
-	  
-	  i++;
-	  //Add Person Result
-	  newDashboardDiv = $(document.createElement('div')).attr("id", 'addaccountlabel' + i);
-
-	  newDashboardDiv.after().html('<div id="dashboardlabeldiv' + "" + '" style="float: left; width: 200px;">Result</div>' +
-	  '<div style="float: left; width: 200px;" id="dashboardresult' + "" + '"></div><div style="clear:left;"></div>');
-	   
-	  newDashboardDiv.appendTo("#BodyDiv");
-
-
-	  //one div: ButtonDiv3
-	  //contains one button
-	  var buttonnum = 3;
-	  buttonDiv = $(document.createElement('div')).attr("id", 'buttondiv' + buttonnum  );
-	  buttonDiv.appendTo("#BodyDiv");
-	   
-	  var r= '<input type="button" id="addbutton' + buttonnum +  '" value="Add Number"/>';
-	  
-	  $("#buttondiv" + buttonnum).html(r);
-	    
-	  $( "#addbutton" + buttonnum ).click(function() {
-	   addSmsNumber();
-	  });
-	  
-	  i++;
-	  //Add Person Result
-	  newDashboardDiv = $(document.createElement('div')).attr("id", 'addaccountlabel' + i);
-
-	  newDashboardDiv.after().html('<div id="dashboardlabeldiv' + "" + '" style="float: left; width: 200px;">Result</div>' +
-	  '<div style="float: left; width: 200px;" id="dashboardresult' + "" + '"></div><div style="clear:left;"></div>');
-	   
-	  newDashboardDiv.appendTo("#BodyDiv");
-
-	  
-	  
-	  
-
-
-
-
+	  $("#dashboardlabeldiv8" + buttonnum).append(r);
 }
-
-
-
-
 
 function renderNewAccount(){
 	
