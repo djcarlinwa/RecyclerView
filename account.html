@@ -199,7 +199,7 @@ function renderDashboard( uuid ){
 	  var first = "David";
 	  $('#BodyDiv').html("");
 	
-	  for (i = 0; i < 3; i++)
+	  for (i = 0; i < 5; i++)
 	  {
 	    var newDashboardDiv = $(document.createElement('div')).attr("id", 'dashboarddiv' + i);
 
@@ -266,6 +266,32 @@ function renderDashboard( uuid ){
 	  newDashboardDiv.appendTo("#BodyDiv");
 
 
+	  //one div: ButtonDiv3
+	  //contains one button
+	  var buttonnum = 3;
+	  buttonDiv = $(document.createElement('div')).attr("id", 'buttondiv' + buttonnum  );
+	  buttonDiv.appendTo("#BodyDiv");
+	   
+	  var r= '<input type="button" id="addbutton' + buttonnum +  '" value="Add Message"/>';
+	  
+	  $("#buttondiv" + buttonnum).html(r);
+	    
+	  $( "#addbutton" + buttonnum ).click(function() {
+	   addSmsMessage();
+	  });
+	  
+	  i++;
+	  //Add Person Result
+	  newDashboardDiv = $(document.createElement('div')).attr("id", 'addaccountlabel' + i);
+
+	  newDashboardDiv.after().html('<div id="dashboardlabeldiv' + "" + '" style="float: left; width: 200px;">Result</div>' +
+	  '<div style="float: left; width: 200px;" id="dashboardresult' + "" + '"></div><div style="clear:left;"></div>');
+	   
+	  newDashboardDiv.appendTo("#BodyDiv");
+
+	  
+	  
+	  
 
 
 
