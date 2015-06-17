@@ -199,7 +199,7 @@ function renderDashboard( uuid ){
 	  var first = "David";
 	  $('#BodyDiv').html("");
 	
-	  for (i = 0; i < 10; i++)
+	  for (i = 0; i < 15; i++)
 	  {
 	    var newDashboardDiv = $(document.createElement('div')).attr("id", 'dashboarddiv' + i);
 
@@ -219,12 +219,11 @@ function renderDashboard( uuid ){
 	  $("#dashboardlabeldiv1").text("UUID");
 	  $("#dashboardlabeldiv2").text("First");
 	  $("#dashboardlabeldiv3").text("Last");
-	  $("#dashboardlabeldiv4").text("Last");
-	  $("#dashboardlabeldiv5").text("Device MAC");
+	  $("#dashboardlabeldiv4").text("Device MAC");
 	  
 	  //button1
 	  var r= '<input type="button" id="addbutton1" value="Update Record"/>';
-	  $("#dashboardlabeldiv6").html(r);
+	  $("#dashboardlabeldiv5").html(r);
 	  $( "#addbutton1" ).click(function() {
 	   addSmsNumber();
 	  });
@@ -232,7 +231,7 @@ function renderDashboard( uuid ){
 	  //button2
 	  r= '<input type="button" id="addbutton2" value="Add Message"/>';
 	  
-	  $("#dashboardlabeldiv7").html(r);
+	  $("#dashboardlabeldiv5").html(r);
 	    
 	  $( "#addbutton2" ).click(function() {
 	   addSmsMessage();
@@ -241,9 +240,9 @@ function renderDashboard( uuid ){
 	  //button3
 	  var buttonnum = 3;
 	   
-	  r= '<input type="button" id="addbutton' + buttonnum +  '" value="Add Number"/>';
+	  r= '<input type="button" id="addbutton' + buttonnum +  '" value="Add SMS Number"/>';
 	  
-	  $("#dashboardlabeldiv8" + buttonnum).html(r);
+	  $("#dashboardlabeldiv6").html(r);
 	    
 	  $( "#addbutton" + buttonnum ).click(function() {
 	   addSmsNumber();
@@ -253,10 +252,10 @@ function renderDashboard( uuid ){
 	  
 	  var selectnum = 1;
 	  r = '<select id="select' + selectnum +'"></select>'
-	  $("#dashboardlabeldiv8" + buttonnum).html(r);
+	  $("#dashboardlabeldiv7").html(r);
 	  selectnum++;
 	  r = '<select id="select' + selectnum +'"></select>' 
-	  $("#dashboardlabeldiv8" + buttonnum).append(r);
+	  $("#dashboardlabeldiv7" + buttonnum).append(r);
 	  
 	  
 	  
