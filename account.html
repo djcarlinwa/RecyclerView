@@ -204,7 +204,7 @@ function renderDashboard( uuid ){
 	    var newDashboardDiv = $(document.createElement('div')).attr("id", 'dashboarddiv' + i);
 
 	    newDashboardDiv.after().html('<div id="dashboardlabeldiv' + i + '" style="float: left; width: 200px;">Textbox #'+ counter + ' : </div>' +
-	    	    '<div style="float: left; width: 600px;" id="dashboardtextdiv' + i + '"> <input type="text" name="dashboardinput' + i + 
+	    	    '<div style="float: left; width: 800px;" id="dashboardtextdiv' + i + '"> <input type="text" name="dashboardinput' + i + 
 	    	    '" id="dashboardinput' + i + '" value="" ></div><div style="clear:left;"></div>');
 	    // addNewAccountDiv.appendTo("#BodyDiv");
 	    newDashboardDiv.appendTo("#BodyDiv");
@@ -253,17 +253,24 @@ function renderDashboard( uuid ){
 	  r = '<input type="text" name="dashboardinput' + inputNum + 
   	    '" id="input' + inputNum + '" value="Country" >';
   	  $("#dashboardtextdiv" + divnum).html(r);
-	  inputNum++;
+	  
+  	  inputNum++;
   	  r = '<input type="text" name="dashboardinput' + inputNum + 
 	    '" id="input' + inputNum + '" value="Area" >';
 	  $("#dashboardtextdiv" + divnum).append(r);	  
+	  
 	  inputNum++;
   	  r = '<input type="text" name="dashboardinput' + inputNum + 
 	    '" id="input' + inputNum + '" value="Number" >';
 	  $("#dashboardtextdiv" + divnum).append(r);	
+	  
+	  inputNum++;
 	  r = '<input type="text" name="dashboardinput' + inputNum + 
-	    '" id="input' + inputNum + '" value="email" >';
+	    '" id="input' + inputNum + '" value="description" >';
 	  $("#dashboardtextdiv" + divnum).append(r);	
+	  
+	  inputNum++;
+	  r = '<input type="text" name="dashboardinput' + inputNum + 
 	    '" id="input' + inputNum + '" value="description" >';
 	  $("#dashboardtextdiv" + divnum).append(r);
 	  
@@ -328,8 +335,8 @@ function  addSmsNumberByUuid(){
 	    	countrycode: $('#input7').val(),
 	    	areacode:    $('#input8').val(),
 	    	smsnumber:   $('#input9').val(),
-	    	countrycode: $('#input7').val()
-	    	
+	    	description: $('#input10').val()
+	    	email:       $('#input11').val()
 	    	
 	    	
 	    	
