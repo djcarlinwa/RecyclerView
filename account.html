@@ -196,6 +196,7 @@ function renderLogOn(){
 
 function renderDashboard( uuid ){
 	 
+	  var first = "David";
 	  $('#BodyDiv').html("");
 	
 	  for (i = 0; i < 3; i++)
@@ -214,10 +215,10 @@ function renderDashboard( uuid ){
 	  // modify the contents of the Add Device div set
 	  $("#dashboardlabeldiv0").html("ImOkBox Dashboard"); 
 	  $("#dashboardtextdiv0").html("&nbsp;"); 
-	  $("#dashboardtextdiv0").text(uuid); 
+	  $("#dashboardtextdiv1").text(uuid); 
 	  $("#dashboardlabeldiv1").text("UUID");
-	  $("#dashboardlabeldiv2").text("Password");
-	  
+	  $("#dashboardlabeldiv2").text("First");
+	  $("#dashboardtextdiv1").text(first); 
 
 	//one div: ButtonDiv1
 	  //contains one button
@@ -229,7 +230,7 @@ function renderDashboard( uuid ){
 	  $("#buttondiv1").html(r);
 	    
 	  $( "#addbutton1" ).click(function() {
-	   logOn();
+	   addSmsNumber();
 	  });
 	  
 	  //Add Person Result
