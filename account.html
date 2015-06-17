@@ -232,16 +232,18 @@ function renderDashboard( uuid ){
 	  
 	  
 	  //button2
+	  var divnum = 7;
 	  r= '<input type="button" id="addbutton2" value="Add Message"/>';
-	  $("#dashboardlabeldiv6").html(r);  
+	  $("#dashboardlabeldiv" + divnum).html(r);  
 	  $( "#addbutton2" ).click(function() {
 	   addSmsMessage();
 	  });
 	  
 	  //button3
 	  var buttonnum = 3;
+	  divnum = 8;
 	  r= '<input type="button" id="addbutton' + buttonnum +  '" value="Add SMS Number"/>';
-	  $("#dashboardlabeldiv7").html(r);
+	  $("#dashboardlabeldiv" + divnum).html(r);
 	  $( "#addbutton" + buttonnum ).click(function() {
 	   addSmsNumber();
 	  });
@@ -269,25 +271,20 @@ function renderDashboard( uuid ){
 	  r = '<select id="select' + selectnum +'"></select>' 
 	  $("#dashboardtextdiv9").html(r);
 	  
+	  divnum = 9;
 
-	  $("#dashboardlabeldiv8").text("Test Message");
-	  $("#dashboardlabeldiv9").text("Test Number");
-	  
+	  $("#dashboardlabeldiv" + divnum).text("Test Message");
+	  divnum++;
+	  $("#dashboardlabeldiv" + divnum).text("Test Number");
+	  divnum++;
 	  
 	  //button4
 	  var buttonnum = 4;
 	  r= '<input type="button" id="addbutton' + buttonnum +  '" value="Send Test"/>';
-	  $("#dashboardlabeldiv10").html(r);
+	  $("#dashboardlabeldiv" + divnum).html(r);
 	  $( "#addbutton" + buttonnum ).click(function() {
 	   sendSms();
 	  });
-	  
-	  
-	  
-	  
-	  
-	  
-	  
 	  
 }
 
