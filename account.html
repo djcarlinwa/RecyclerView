@@ -248,51 +248,51 @@ function renderDashboard( uuid ){
 	   addSmsNumber();
 	  });
 	  
-	  
-
-	  
-	  
-	  
-	  //input for country, areacode, number
+      //input for country, areacode, number
 	  var inputNum = 7;
 	  r = '<input type="text" name="dashboardinput' + inputNum + 
   	    '" id="input' + inputNum + '" value="Country" >';
-  	  $("#dashboardtextdiv7").html(r);
+  	  $("#dashboardtextdiv" + divnum).html(r);
 	  inputNum++;
   	  r = '<input type="text" name="dashboardinput' + inputNum + 
 	    '" id="input' + inputNum + '" value="Area" >';
-	  $("#dashboardtextdiv7").append(r);	  
+	  $("#dashboardtextdiv" + divnum).append(r);	  
 	  inputNum++;
   	  r = '<input type="text" name="dashboardinput' + inputNum + 
 	    '" id="input' + inputNum + '" value="Number" >';
-	  $("#dashboardtextdiv7").append(r);	  
+	  $("#dashboardtextdiv" + divnum).append(r);	
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  divnum = 9 ;
+      $("#dashboarddiv" + divnum).html("<hr>");
+	  
+  
 	  
 
-	  divnum = 8 ;
 
-	  $("#dashboarddiv" + divnum).html("<hr>");
-	  divnum++;
-	  
+
+	  divnum = 10;
 	  //select1
 	  var selectnum = 1;
 	  r = '<select id="select' + selectnum +'"></select>'
 	  $("#dashboardtextdiv" + divnum).html(r);
 	  selectnum++;
+	  divnum++;
 	  r = '<select id="select' + selectnum +'"></select>' 
 	  $("#dashboardtextdiv" + divnum).html(r);
 	  
-	  
-	  
-	  
-	  
-
-	  $("#dashboarddiv" + divnum).html("<hr>");
-	  
+	  divnum = 10;
 	  $("#dashboardlabeldiv" + divnum).text("Test Message");
 	  divnum++;
 	  $("#dashboardlabeldiv" + divnum).text("Test Number");
 	  divnum++;
 	  
+	  divnum++;
 	  //button4
 	  var buttonnum = 4;
 	  r= '<input type="button" id="addbutton' + buttonnum +  '" value="Send Test"/>';
