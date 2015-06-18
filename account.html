@@ -324,7 +324,7 @@ function  getSmsMessages(){
 	$.ajax({
 
 	    // The URL for the request
-	    url: myUrl + "getsmsmessagebyuuid.cgi",
+	    url: myUrl + "getsmsmessagesbyuuid.cgi",
 	 
 	    // The data to send (will be converted to a query string)
 	    data: {
@@ -341,7 +341,7 @@ function  getSmsMessages(){
 	    // the response is passed to the function
 	    success: function( json ) {
 
-	    	alert("selector add:" + json.toString());
+	    	alert("getsmsmessagesbyuuid" + json.toString());
 	    	
 	    	var _select = $('#select1');
 			$.each(json, function(index, val) {
@@ -351,7 +351,7 @@ function  getSmsMessages(){
 			});
 		
 	  
-			  $("#adddeviceselector").append(_select.html());
+			 // $("#adddeviceselector").append(_select.html());
 	        
 	        
 	    },
