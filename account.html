@@ -314,6 +314,7 @@ function renderDashboard( uuid ){
 	  
 	   	
   	  getSmsNumbers();
+  	  getSmsMessages();
 	  
 }
 
@@ -538,7 +539,7 @@ function  addSmsNumberByUuid(){
 		    // Code to run regardless of success or failure
 		    complete: function( xhr, status ) {
 		    	
-		    	getSmsNumbers();
+		    	getSmsMessages();
 		        //alert( "The request is complete!" );
 		    }
 		});
