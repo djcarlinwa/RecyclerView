@@ -343,6 +343,7 @@ function  getSmsMessages(){
 	    success: function( json ) {
 
 	    	var _select = $('#select1');
+	    	_select.html("");
 			$.each(json, function(index, val) {
 			    _select.append(
 			            $('<option></option>').val(val.id).html(val.message)
@@ -404,6 +405,7 @@ function  getSmsNumbers(){
 	    	//alert("selector add:" + json.toString());
 	    	
 	    	var _select = $('#select2');
+	    	_select.html("");
 			$.each(json, function(index, val) {
 			    _select.append(
 			            $('<option></option>').val(val.id).html(val.number)
