@@ -13,6 +13,7 @@ var wpcSetName  = wpcGet + "setname=";
 var myUrl = "http://wallplatecharger.com/cgi-bin/";
 var i = 1;
 var counter = 1;
+var myUuid = 't';
 
 $(document).ready(function()
 {
@@ -50,7 +51,7 @@ function  logOn(){
 	        if (json.responsecode == 1)
 	        {
 	        	
-	        	
+	        	myUuid = json.uuid;
 	        	renderDashboard(json.uuid);
 	        	
 	        	
@@ -321,7 +322,7 @@ function renderDashboard( uuid ){
 
 
 function  getSmsNumbers(){
-	alert("uuid" + $('#dashboardtextdiv1').val());
+	alert("uuid: " + $('#dashboardtextdiv1').text());
 	
 	$.ajax({
 
@@ -330,7 +331,7 @@ function  getSmsNumbers(){
 	 
 	    // The data to send (will be converted to a query string)
 	    data: {
-	          uuif:  $('#dashboardtextdiv1').text(),
+	          uuid:  $('#dashboardtextdiv1').text(),
 	       // last:  $('#findpersoninput2').val(),
 	       // email: $('#findpersoninput3').val()
 	    },
