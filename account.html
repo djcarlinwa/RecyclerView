@@ -320,7 +320,7 @@ function renderDashboard( uuid ){
 
 
 function  getSmsMessages(){
-	alert("uuid: " + myUuid);
+	//alert("uuid: " + myUuid);
 	
 	$.ajax({
 
@@ -377,7 +377,7 @@ function  getSmsMessages(){
 
 
 function  getSmsNumbers(){
-	alert("uuid: " + myUuid);
+	//alert("uuid: " + myUuid);
 	
 	$.ajax({
 
@@ -401,7 +401,7 @@ function  getSmsNumbers(){
 	    // the response is passed to the function
 	    success: function( json ) {
 
-	    	alert("selector add:" + json.toString());
+	    	//alert("selector add:" + json.toString());
 	    	
 	    	var _select = $('#select2');
 			$.each(json, function(index, val) {
@@ -434,7 +434,7 @@ function  getSmsNumbers(){
 	};
 
 function  addSmsNumberByUuid(){
-	alert("OK! " + myUrl + "addsmsnumberbyuuid.cgi");
+	//alert("OK! " + myUrl + "addsmsnumberbyuuid.cgi");
 	$.ajax({
 
 	    // The URL for the request
@@ -473,7 +473,7 @@ function  addSmsNumberByUuid(){
 	    // the response is passed to the function
 	    success: function( json ) {    
 	    	
-	    	alert("OK!" + json.responsecode);
+	    	//alert("OK!" + json.responsecode);
 	       // $("#finddeviceresult").html(" Response Code:" + json.responsecode + " RecordId:" + json.id);
 	       // $("#finddevicetextdiv2").text(json.devicetypetext);
 	    },
@@ -498,7 +498,7 @@ function  addSmsNumberByUuid(){
 	};
 
 	function  addSmsMessageByUuid(){
-		alert("OK! " + myUrl + "addsmsmessagebyuuid.cgi");
+		//alert("OK! " + myUrl + "addsmsmessagebyuuid.cgi");
 		$.ajax({
 
 		    // The URL for the request
@@ -520,7 +520,7 @@ function  addSmsNumberByUuid(){
 		    // the response is passed to the function
 		    success: function( json ) {    
 		    	
-		    	alert("OK!" + json.responsecode);
+		    	//alert("OK!" + json.responsecode);
 		       // $("#finddeviceresult").html(" Response Code:" + json.responsecode + " RecordId:" + json.id);
 		       // $("#finddevicetextdiv2").text(json.devicetypetext);
 		    },
