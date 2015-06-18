@@ -519,7 +519,7 @@ function  addSmsNumberByUuid(){
 		    // Code to run if the request succeeds;
 		    // the response is passed to the function
 		    success: function( json ) {    
-		    	
+		    	getSmsMessages();
 		    	//alert("OK!" + json.responsecode);
 		       // $("#finddeviceresult").html(" Response Code:" + json.responsecode + " RecordId:" + json.id);
 		       // $("#finddevicetextdiv2").text(json.devicetypetext);
@@ -537,7 +537,7 @@ function  addSmsNumberByUuid(){
 		    // Code to run regardless of success or failure
 		    complete: function( xhr, status ) {
 		    	
-		    	getSmsMessages();
+		   
 		        //alert( "The request is complete!" );
 		    }
 		});
