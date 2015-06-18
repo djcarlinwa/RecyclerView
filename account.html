@@ -342,7 +342,7 @@ function  getSmsMessages(){
 	    // the response is passed to the function
 	    success: function( json ) {
 
-	    	alert("getsmsmessagesbyuuid" + json.toString());
+	    	alert("getsmsmessagesbyuuid json:" + json[0].message  );
 	    	
 	    	var _select = $('#select1');
 			$.each(json, function(index, val) {
