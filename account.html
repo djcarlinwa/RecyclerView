@@ -266,12 +266,12 @@ function renderDashboard( uuid ){
 	  
 	  inputNum++;
 	  r = '<input type="text" name="dashboardinput' + inputNum + 
-	    '" id="input' + inputNum + '" value="description" >';
+	    '" id="input' + inputNum + '" value="Description" >';
 	  $("#dashboardtextdiv" + divnum).append(r);	
 	  
 	  inputNum++;
 	  r = '<input type="text" name="dashboardinput' + inputNum + 
-	    '" id="input' + inputNum + '" value="description" >';
+	    '" id="input' + inputNum + '" value="eMail" >';
 	  $("#dashboardtextdiv" + divnum).append(r);
 	  
 	  
@@ -312,6 +312,76 @@ function renderDashboard( uuid ){
 	  });
 	  
 }
+
+
+
+
+
+
+
+
+function  getSmsNumbers(){
+	alert("uuid" + $('#dashboardtextdiv1').val());
+	
+	$.ajax({
+
+	    // The URL for the request
+	    url: myUrl + "getsmsnumbersbyuuid.cgi",
+	 
+	    // The data to send (will be converted to a query string)
+	    data: {
+	          uuif:  $('#dashboardtextdiv1').text(),
+	       // last:  $('#findpersoninput2').val(),
+	       // email: $('#findpersoninput3').val()
+	    },
+	 
+	    // Whether this is a POST or GET request
+	    type: "GET",
+	 
+	    // The type of data we expect back
+	    dataType : "json",
+	 
+	    // Code to run if the request succeeds;
+	    // the response is passed to the function
+	    success: function( json ) {
+
+	    	//alert("Hello" + json.toString());
+	    	
+	    	var _select = $('#select1');
+			$.each(json, function(index, val) {
+			    _select.append(
+			            $('<option></option>').val(val.recordid).html(val.recordtext)
+			        );
+			});
+		
+	  
+			  $("#adddeviceselector").append(_select.html());
+	        
+	        
+	    },
+	 
+	    // Code to run if the request fails; the raw request and
+	    // status codes are passed to the function
+	    error: function( xhr, status, errorThrown ) {
+	        //alert( "Sorry, there was a problem!" );
+	        console.log( "Error: " + errorThrown );
+	        console.log( "Status: " + status );
+	        console.dir( xhr );
+	    },
+	 
+	    // Code to run regardless of success or failure
+	    complete: function( xhr, status ) {
+	        //alert( "The request is complete!" );
+	    }
+	});
+
+	};
+
+
+
+
+
+
 
 
 
