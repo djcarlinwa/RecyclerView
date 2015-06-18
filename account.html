@@ -346,12 +346,12 @@ function  getSmsNumbers(){
 	    // the response is passed to the function
 	    success: function( json ) {
 
-	    	//alert("Hello" + json.toString());
+	    	alert("selector add:" + json.toString());
 	    	
 	    	var _select = $('#select1');
 			$.each(json, function(index, val) {
 			    _select.append(
-			            $('<option></option>').val(val.recordid).html(val.recordtext)
+			            $('<option></option>').val(index).html(val.id)
 			        );
 			});
 		
