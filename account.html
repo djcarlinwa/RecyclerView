@@ -205,7 +205,7 @@ function renderDashboard( uuid ){
 	    var newDashboardDiv = $(document.createElement('div')).attr("id", 'dashboarddiv' + i);
 
 	    newDashboardDiv.after().html('<div id="dashboardlabeldiv' + i + '" style="float: left; width: 200px;">Textbox #'+ counter + ' : </div>' +
-	    	    '<div style="float: left; width: 800px;" id="dashboardtextdiv' + i + '"> <input type="text" name="dashboardinput' + i + 
+	    	    '<div style="float: left; width: 800px;" id="dashboardtextdiv' + i + '"> <input type="text" name="dashboardinputname' + i + 
 	    	    '" id="dashboardinput' + i + '" value="" ></div><div style="clear:left;"></div>');
 	    // addNewAccountDiv.appendTo("#BodyDiv");
 	    newDashboardDiv.appendTo("#BodyDiv");
@@ -508,7 +508,7 @@ function  addSmsNumberByUuid(){
 		    // The data to send (will be converted to a query string)
 		    data: {
 		    		uuid:        myUuid,
-		    		messagetext: $("#dashboardinput7").val()
+		    		message:    $("#dashboardinput7").val()
 		    },
 		 
 		    // Whether this is a POST or GET request
