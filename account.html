@@ -315,7 +315,62 @@ function renderDashboard( uuid ){
 }
 
 
+function  getSmsMessages(){
+	alert("uuid: " + myUuid);
+	
+	$.ajax({
 
+	    // The URL for the request
+	    url: myUrl + "getsmsnumbersbyuuid.cgi",
+	 
+	    // The data to send (will be converted to a query string)
+	    data: {
+	          uuid:  myUuid,
+	       // last:  $('#findpersoninput2').val(),
+	       // email: $('#findpersoninput3').val()
+	    },
+	 
+	    // Whether this is a POST or GET request
+	    type: "GET",
+	 
+	    // The type of data we expect back
+	    dataType : "json",
+	 
+	    // Code to run if the request succeeds;
+	    // the response is passed to the function
+	    success: function( json ) {
+
+	    	alert("selector add:" + json.toString());
+	    	
+	    	var _select = $('#select2');
+			$.each(json, function(index, val) {
+			    _select.append(
+			            $('<option></option>').val(val.id).html(val.number)
+			        );
+			});
+		
+	  
+			  $("#adddeviceselector").append(_select.html());
+	        
+	        
+	    },
+	 
+	    // Code to run if the request fails; the raw request and
+	    // status codes are passed to the function
+	    error: function( xhr, status, errorThrown ) {
+	        //alert( "Sorry, there was a problem!" );
+	        console.log( "Error: " + errorThrown );
+	        console.log( "Status: " + status );
+	        console.dir( xhr );
+	    },
+	 
+	    // Code to run regardless of success or failure
+	    complete: function( xhr, status ) {
+	        //alert( "The request is complete!" );
+	    }
+	});
+
+	};
 
 
 
@@ -348,10 +403,10 @@ function  getSmsNumbers(){
 
 	    	alert("selector add:" + json.toString());
 	    	
-	    	var _select = $('#select1');
+	    	var _select = $('#select2');
 			$.each(json, function(index, val) {
 			    _select.append(
-			            $('<option></option>').val(index).html(val.id)
+			            $('<option></option>').val(val.id).html(val.number)
 			        );
 			});
 		
@@ -377,15 +432,6 @@ function  getSmsNumbers(){
 	});
 
 	};
-
-
-
-
-
-
-
-
-
 
 function  addSmsNumberByUuid(){
 	alert("OK! " + myUrl + "addsmsnumberbyuuid.cgi");
@@ -451,7 +497,52 @@ function  addSmsNumberByUuid(){
 
 	};
 
+	function  addSmsMessageByUuid(){
+		alert("OK! " + myUrl + "addsmsnumberbyuuid.cgi");
+		$.ajax({
 
+		    // The URL for the request
+		    url: myUrl + "addsmsmessagebyuuid.cgi",
+		
+		    // The data to send (will be converted to a query string)
+		    data: {
+		    		uuid:        myUuid,
+		    		messagetext: $("#dashboardinput7").val()
+		    },
+		 
+		    // Whether this is a POST or GET request
+		    type: "POST",
+		 
+		    // The type of data we expect back
+		    dataType : "json",
+		 
+		    // Code to run if the request succeeds;
+		    // the response is passed to the function
+		    success: function( json ) {    
+		    	
+		    	alert("OK!" + json.responsecode);
+		       // $("#finddeviceresult").html(" Response Code:" + json.responsecode + " RecordId:" + json.id);
+		       // $("#finddevicetextdiv2").text(json.devicetypetext);
+		    },
+		 
+		    // Code to run if the request fails; the raw request and
+		    // status codes are passed to the function
+		    error: function( xhr, status, errorThrown ) {
+		        //alert( "Sorry, there was a problem!" );
+		        console.log( "Error: " + errorThrown );
+		        console.log( "Status: " + status );
+		        console.dir( xhr );
+		    },
+		 
+		    // Code to run regardless of success or failure
+		    complete: function( xhr, status ) {
+		    	
+		    	getSmsNumbers();
+		        //alert( "The request is complete!" );
+		    }
+		});
+
+		};
 
 
 
