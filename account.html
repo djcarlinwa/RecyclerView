@@ -397,8 +397,8 @@ function  getSmsMessages(){
 		    // Code to run if the request succeeds;
 		    // the response is passed to the function
 		    success: function( json ) {
-
-		    	alert("Result Code: " + json[0].resultcode);
+		    	var object = jQuery.parseJSON(json); 
+		    	alert("Result Code: " + object.responsecode);
 		    	
 	
 
