@@ -384,8 +384,8 @@ function  getSmsMessages(){
 		    // The data to send (will be converted to a query string)
 		    data: {
 		          uuid:      myUuid,
-		          numberid:  $('#select1').val(),
-		          messageid: $('#select2').val()
+		          numberid:  $('#select2').val(),
+		          messageid: $('#select1').val()
 		    },
 		 
 		    // Whether this is a POST or GET request
@@ -397,8 +397,8 @@ function  getSmsMessages(){
 		    // Code to run if the request succeeds;
 		    // the response is passed to the function
 		    success: function( json ) {
-		    	//var object = jQuery.parseJSON(json); 
-		    	alert("Result Code: " );
+		    	var object = jQuery.parseJSON(json); 
+		    	alert("Result Code: " + object.id );
 		    	
 	
 
