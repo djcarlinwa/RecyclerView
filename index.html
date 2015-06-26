@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/knockout/3.3.0/knockout-min.js'></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript" src="http://wallplatecharger.com/wallplate.js" type="text/javascript" charset="utf-8"></script>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+
+var wpcGet ="http://wallplatecharger.com:8080/TomcatEight/Medications?";
+var wpcGetNames = wpcGet + "namesofar=";
+var wpcSetName  = wpcGet + "setname=";
+var myUrl = "http://wallplatecharger.com/cgi-bin/";
+var i = 1;
+var counter = 1;
+var myUuid = 't';
+
+$(document).ready(function()
+{
+  renderNewAccount();		  
+});
+
+function  logOn(){
+	////alert("values:" + $('#findinput3').val());
+	
+	$.ajax({
+
+	    // The URL for the request
+	    url: myUrl + "logon.cgi",
+	 
+	    // The data to send (will be converted to a query string)
+	    data: {
+
+	        password:  $('#addaccountinput2').val(),
+	        email: $('#addaccountinput1').val()
+	    },
+	 
+	    // Whether this is a POST or GET request
+	    type: "POST",
+	 
+	    // The type of data we expect back
+	    dataType : "json",
+	 
+	    // Code to run if the request succeeds;
+	    // the response is passed to the function
+	    success: function( json ) {
+	     
+	        
+	        $("#logonresult").html(" Response Code:" + json.responsecode + " RecordId:" + json.uuid);
+	        
+	        if (json.responsecode == 1)
+	        {
+	        	
+	        	myUuid = json.uuid;
+	        	renderDashboard(json.uuid);
+	        	
+	        	
+	        }
+	        
+	        //alert( "request id" + json.id); 
+	        
+	        
+	    },
+	 
+	    // Code to run if the request fails; the raw request and
+	    // status codes are passed to the function
+	    error: function( xhr, status, errorThrown ) {
+	        //alert( "Sorry, there was a problem!" );
+	        console.log( "Error: " + errorThrown );
+	        console.log( "Status: " + status );
+	        console.dir( xhr );
+	    },
+	 
+	    // Code to run regardless of success or failure
+	    complete: function( xhr, status ) {
+	        //alert( "The request is complete!" );
+	    }
+	});
+
+	};
+	
+
+
+
+
+
+
+
+
+function  addAccount(){
+	////alert("values:" + $('#findinput3').val());
+	
+	$.ajax({
+
+	    // The URL for the request
+	    url: myUrl + "addaccount.cgi",
+	 
+	    // The data to send (will be converted to a query string)
+	    data: {
+
+	        password:  $('#addaccountinput2').val(),
+	        email: $('#addaccountinput1').val()
+	    },
+	 
+	    // Whether this is a POST or GET request
+	    type: "POST",
+	 
+	    // The type of data we expect back
+	    dataType : "json",
+	 
+	    // Code to run if the request succeeds;
+	    // the response is passed to the function
+	    success: function( json ) {
+	     
+	        
+	        $("#addaccountresult").html(" Response Code:" + json.responsecode + " RecordId:" + json.id);
+	        
+	        if (json.responsecode == 1)
+	        {
+	        	
+	        	
+	        	renderLogOn();
+	        	
+	        	
+	        }
+	        
+	        //alert( "request id" + json.id); 
+	        
+	        
+	    },
+	 
+	    // Code to run if the request fails; the raw request and
+	    // status codes are passed to the function
+	    error: function( xhr, status, errorThrown ) {
+	        //alert( "Sorry, there was a problem!" );
+	        console.log( "Error: " + errorThrown );
+	        console.log( "Status: " + status );
+	        console.dir( xhr );
+	    },
+	 
+	    // Code to run regardless of success or failure
+	    complete: function( xhr, status ) {
+	        //alert( "The request is complete!" );
+	    }
+	});
+
+	};
+	
+
+
+function renderLogOn(){
+	 
+	  $('#BodyDiv').html("");
+	
+	  for (i = 0; i < 3; i++)
+	  {
+	    var newDashboardDiv = $(document.createElement('div')).attr("id", 'dashboarddiv' + i);
+
+	    newDashboardDiv.after().html('<div id="dashboardlabeldiv' + i + '" style="float: left; width: 200px;">Textbox #'+ counter + ' : </div>' +
+	    	    '<div style="float: left; width: 800px;" id="dashboardtextdiv' + i + '"> <input type="text" name="dashboardinput' + i + 
+	    	    '" id="dashboardinput' + i + '" value="" ></div><div style="clear:left;"></div>');
+	    // addNewAccountDiv.appendTo("#BodyDiv");
+	    newDashboardDiv.appendTo("#BodyDiv");
+	  }	 
+	  
+	 
+	 
+	  // modify the contents of the Add Device div set
+	  $("#dashboardlabeldiv0").html("Log On to ImOkBox"); 
+	  $("#dashboardtextdiv0").html("&nbsp;"); 
+	  $("#dashboardlabeldiv1").text("eMail Address");
+	  $("#dashboardlabeldiv2").text("Password");
+	  
+
+	//one div: ButtonDiv1
+	  //contains one button
+	  var buttonDiv = $(document.createElement('div')).attr("id", 'buttondiv1' );
+	  buttonDiv.appendTo("#BodyDiv");
+	   
+	  var r= '<input type="button" id="addbutton1" value="Log On"/>';
+	  
+	  $("#buttondiv1").html(r);
+	    
+	  $( "#addbutton1" ).click(function() {
+	   logOn();
+	  });
+	  
+	  //Add Person Result
+	  var newDashboardDiv = $(document.createElement('div')).attr("id", 'addaccountlabel' + i);
+
+	  newDashboardDiv.after().html('<div id="dashboardlabeldiv' + "" + '" style="float: left; width: 200px;">Result</div>' +
+	  '<div style="float: left; width: 200px;" id="dashboardresult' + "" + '"></div><div style="clear:left;"></div>');
+	   
+	  newDashboardDiv.appendTo("#BodyDiv");
+	
+}
+
+function renderDashboard( uuid ){
+	 
+	  var first = "David";
+	  $('#BodyDiv').html("");
+	
+	  for (i = 0; i < 13; i++)
+	  {
+	    var newDashboardDiv = $(document.createElement('div')).attr("id", 'dashboarddiv' + i);
+
+	    newDashboardDiv.after().html('<div id="dashboardlabeldiv' + i + '" style="float: left; width: 200px;">Textbox #'+ counter + ' : </div>' +
+	    	    '<div style="float: left; width: 800px;" id="dashboardtextdiv' + i + '"> <input type="text" name="dashboardinputname' + i + 
+	    	    '" id="dashboardinput' + i + '" value="" ></div><div style="clear:left;"></div>');
+	    // addNewAccountDiv.appendTo("#BodyDiv");
+	    newDashboardDiv.appendTo("#BodyDiv");
+	  }	 
+	  
+	 
+	 
+	  // modify the contents of the Add Device div set
+	  $("#dashboardlabeldiv0").html("ImOkBox Dashboard"); 
+	  $("#dashboardtextdiv0").html("&nbsp;"); 
+	  $("#dashboardtextdiv1").text(uuid); 
+	  $("#dashboardlabeldiv1").text("UUID");
+	  $("#dashboardlabeldiv2").text("First");
+	  $("#dashboardlabeldiv3").text("Last");
+	  $("#dashboardlabeldiv4").text("Device MAC");
+	
+	  //button1
+	  var r = '<input type="button" id="addbutton1" value="Update Record"/>';
+	  $("#dashboardlabeldiv5").html(r);
+	  $( "#addbutton1" ).click(function() {
+	   updateAccount();
+	  });
+	  $("#dashboardtextdiv5").html("&nbsp;"); 
+	  
+	  $("#dashboarddiv6").html("<hr>");
+	  
+	  //button2
+	  var divnum = 7;
+	  r= '<input type="button" id="addbutton2" value="Add Message"/>';
+	  $("#dashboardlabeldiv" + divnum).html(r);  
+	  $( "#addbutton2" ).click(function() {
+	   addSmsMessageByUuid();
+	  });
+	  
+	  //button3
+	  var buttonnum = 3;
+	  divnum = 8;
+	  r= '<input type="button" id="addbutton' + buttonnum +  '" value="Add SMS Number"/>';
+	  $("#dashboardlabeldiv" + divnum).html(r);
+	  $( "#addbutton" + buttonnum ).click(function() {
+	   addSmsNumberByUuid();
+	  });
+	  
+      //input for country, areacode, number
+	  var inputNum = 7;
+	  r = '<input type="text" name="dashboardinput' + inputNum + 
+  	    '" id="input' + inputNum + '" value="Country" >';
+  	  $("#dashboardtextdiv" + divnum).html(r);
+	  
+  	  inputNum++;
+  	  r = '<input type="text" name="dashboardinput' + inputNum + 
+	    '" id="input' + inputNum + '" value="Area" >';
+	  $("#dashboardtextdiv" + divnum).append(r);	  
+	  
+	  inputNum++;
+  	  r = '<input type="text" name="dashboardinput' + inputNum + 
+	    '" id="input' + inputNum + '" value="Number" >';
+	  $("#dashboardtextdiv" + divnum).append(r);	
+	  
+	  inputNum++;
+	  r = '<input type="text" name="dashboardinput' + inputNum + 
+	    '" id="input' + inputNum + '" value="Description" >';
+	  $("#dashboardtextdiv" + divnum).append(r);	
+	  
+	  inputNum++;
+	  r = '<input type="text" name="dashboardinput' + inputNum + 
+	    '" id="input' + inputNum + '" value="eMail" >';
+	  $("#dashboardtextdiv" + divnum).append(r);
+	  
+	  
+	  
+	  
+	  
+	  
+	  divnum = 9 ;
+      $("#dashboarddiv" + divnum).html("<hr>");
+	  
+  
+	  
+
+
+
+	  divnum = 10;
+	  //select1
+	  var selectnum = 1;
+	  r = '<select id="select' + selectnum +'"></select>'
+	  $("#dashboardtextdiv" + divnum).html(r);
+	  selectnum++;
+	  divnum++;
+	  r = '<select id="select' + selectnum +'"></select>' 
+	  $("#dashboardtextdiv" + divnum).html(r);
+	  
+	  divnum = 10;
+	  $("#dashboardlabeldiv" + divnum).text("Test Message");
+	  divnum++;
+	  $("#dashboardlabeldiv" + divnum).text("Test Number");
+	  divnum++;
+	  
+	  //button4
+	  var buttonnum = 4;
+	  r= '<input type="button" id="addbutton' + buttonnum +  '" value="Send Test"/>';
+	  $("#dashboardlabeldiv" + divnum).html(r);
+	  $( "#addbutton" + buttonnum ).click(function() {
+	   sendSms();
+	  });
+	  
+	   	
+  	  getSmsNumbers();
+  	  getSmsMessages();
+	  
+}
+
+
+function  getSmsMessages(){
+	//alert("uuid: " + myUuid);
+	
+	$.ajax({
+
+	    // The URL for the request
+	    url: myUrl + "getsmsmessagesbyuuid.cgi",
+	 
+	    // The data to send (will be converted to a query string)
+	    data: {
+	          uuid:  myUuid,
+	    },
+	 
+	    // Whether this is a POST or GET request
+	    type: "GET",
+	 
+	    // The type of data we expect back
+	    dataType : "json",
+	 
+	    // Code to run if the request succeeds;
+	    // the response is passed to the function
+	    success: function( json ) {
+
+	    	var _select = $('#select1');
+	    	_select.html("");
+			$.each(json, function(index, val) {
+			    _select.append(
+			            $('<option></option>').val(val.id).html(val.message)
+			        );
+			});
+		
+	  
+			 // $("#adddeviceselector").append(_select.html());
+	        
+	        
+	    },
+	 
+	    // Code to run if the request fails; the raw request and
+	    // status codes are passed to the function
+	    error: function( xhr, status, errorThrown ) {
+	        //alert( "Sorry, there was a problem!" );
+	        console.log( "Error: " + errorThrown );
+	        console.log( "Status: " + status );
+	        console.dir( xhr );
+	    },
+	 
+	    // Code to run regardless of success or failure
+	    complete: function( xhr, status ) {
+	        //alert( "The request is complete!" );
+	    }
+	});
+
+	};
+
+	function  sendSms(){
+		//alert("uuid: " + myUuid);
+		
+		$.ajax({
+
+		    // The URL for the request
+		    url: "http://wallplatecharger.com/node/sendsms",
+		 
+		    // The data to send (will be converted to a query string)
+		    data: {
+		          uuid:      myUuid,
+		          numberid:  $('#select2').val(),
+		          messageid: $('#select1').val()
+		    },
+		 
+		    // Whether this is a POST or GET request
+		    type: "GET",
+		 
+		    // The type of data we expect back
+		    dataType : "json",
+		 
+		    // Code to run if the request succeeds;
+		    // the response is passed to the function
+		    success: function( json ) {
+		    },
+		 
+		    // Code to run if the request fails; the raw request and
+		    // status codes are passed to the function
+		    error: function( xhr, status, errorThrown ) {
+		        //alert( "Sorry, there was a problem!" );
+		        console.log( "Error: " + errorThrown );
+		        console.log( "Status: " + status );
+		        console.dir( xhr );
+		    },
+		 
+		    // Code to run regardless of success or failure
+		    complete: function( xhr, status ) {
+		        //alert( "The request is complete!" );
+		    }
+		});
+
+		};
+
+
+
+
+function  getSmsNumbers(){
+	//alert("uuid: " + myUuid);
+	
+	$.ajax({
+
+	    // The URL for the request
+	    url: myUrl + "getsmsnumbersbyuuid.cgi",
+	 
+	    // The data to send (will be converted to a query string)
+	    data: {
+	          uuid:  myUuid,
+	       // last:  $('#findpersoninput2').val(),
+	       // email: $('#findpersoninput3').val()
+	    },
+	 
+	    // Whether this is a POST or GET request
+	    type: "GET",
+	 
+	    // The type of data we expect back
+	    dataType : "json",
+	 
+	    // Code to run if the request succeeds;
+	    // the response is passed to the function
+	    success: function( json ) {
+
+	    	//alert("selector add:" + json.toString());
+	    	
+	    	var _select = $('#select2');
+	    	_select.html("");
+			$.each(json, function(index, val) {
+			    _select.append(
+			            $('<option></option>').val(val.id).html(val.number)
+			        );
+			});
+		
+	  
+			  $("#adddeviceselector").append(_select.html());
+	        
+	        
+	    },
+	 
+	    // Code to run if the request fails; the raw request and
+	    // status codes are passed to the function
+	    error: function( xhr, status, errorThrown ) {
+	        //alert( "Sorry, there was a problem!" );
+	        console.log( "Error: " + errorThrown );
+	        console.log( "Status: " + status );
+	        console.dir( xhr );
+	    },
+	 
+	    // Code to run regardless of success or failure
+	    complete: function( xhr, status ) {
+	        //alert( "The request is complete!" );
+	    }
+	});
+
+	};
+
+function  addSmsNumberByUuid(){
+	//alert("OK! " + myUrl + "addsmsnumberbyuuid.cgi");
+	$.ajax({
+
+	    // The URL for the request
+	    url: myUrl + "addsmsnumberbyuuid.cgi",
+	
+	    // The data to send (will be converted to a query string)
+	    data: {
+	    	//my $areacode           = $query->param('areacode');
+	    	//my $countrycode        = $query->param('countrycode');
+	    	//my $smsnumber          = $query->param('smsnumber'); 
+	    //	my $personid           = $query->param('personid');
+	    //	my $uuid               = $query->param('uuid');
+	    //	my $email              = $query->param('email');
+	    	
+	    	countrycode: $('#input7').val(),
+	    	areacode:    $('#input8').val(),
+	    	smsnumber:   $('#input9').val(),
+	    	description: $('#input10').val(),
+	    	email:       $('#input11').val()
+	    	
+	    	
+	    	
+	    	
+	       //   mac: $('#finddeviceinput1').val(),
+	       // last:  $('#findpersoninput2').val(),
+	       // email: $('#findpersoninput3').val()
+	    },
+	 
+	    // Whether this is a POST or GET request
+	    type: "POST",
+	 
+	    // The type of data we expect back
+	    dataType : "json",
+	 
+	    // Code to run if the request succeeds;
+	    // the response is passed to the function
+	    success: function( json ) {    
+	    	
+	    	//alert("OK!" + json.responsecode);
+	       // $("#finddeviceresult").html(" Response Code:" + json.responsecode + " RecordId:" + json.id);
+	       // $("#finddevicetextdiv2").text(json.devicetypetext);
+	    },
+	 
+	    // Code to run if the request fails; the raw request and
+	    // status codes are passed to the function
+	    error: function( xhr, status, errorThrown ) {
+	        //alert( "Sorry, there was a problem!" );
+	        console.log( "Error: " + errorThrown );
+	        console.log( "Status: " + status );
+	        console.dir( xhr );
+	    },
+	 
+	    // Code to run regardless of success or failure
+	    complete: function( xhr, status ) {
+	    	
+	    	getSmsNumbers();
+	        //alert( "The request is complete!" );
+	    }
+	});
+
+	};
+
+	function  addSmsMessageByUuid(){
+		//alert("OK! " + myUrl + "addsmsmessagebyuuid.cgi");
+		$.ajax({
+
+		    // The URL for the request
+		    url: myUrl + "addsmsmessagebyuuid.cgi",
+		
+		    // The data to send (will be converted to a query string)
+		    data: {
+		    		uuid:        myUuid,
+		    		message:    $("#dashboardinput7").val()
+		    },
+		 
+		    // Whether this is a POST or GET request
+		    type: "POST",
+		 
+		    // The type of data we expect back
+		    dataType : "json",
+		 
+		    // Code to run if the request succeeds;
+		    // the response is passed to the function
+		    success: function( json ) {    
+		    	getSmsMessages();
+		    	//alert("OK!" + json.responsecode);
+		       // $("#finddeviceresult").html(" Response Code:" + json.responsecode + " RecordId:" + json.id);
+		       // $("#finddevicetextdiv2").text(json.devicetypetext);
+		    },
+		 
+		    // Code to run if the request fails; the raw request and
+		    // status codes are passed to the function
+		    error: function( xhr, status, errorThrown ) {
+		        //alert( "Sorry, there was a problem!" );
+		        console.log( "Error: " + errorThrown );
+		        console.log( "Status: " + status );
+		        console.dir( xhr );
+		    },
+		 
+		    // Code to run regardless of success or failure
+		    complete: function( xhr, status ) {
+		    	
+		   
+		        //alert( "The request is complete!" );
+		    }
+		});
+
+		};
+
+
+
+
+
+
+
+
+function renderNewAccount(){
+	
+	  for (i = 0; i < 3; i++)
+	  {
+	    var addNewAccountDiv = $(document.createElement('div')).attr("id", 'addNewAccountdiv' + i);
+
+	    addNewAccountDiv.after().html('<div id="addaccountlabeldiv' + i + '" style="float: left; width: 200px;">Textbox #'+ counter + ' : </div>' +
+	    	    '<div style="float: left; width: 200px;" id="addaccounttextdiv' + i + '"> <input type="text" name="inputbox' + i + 
+	    	    '" id="addaccountinput' + i + '" value="" ></div><div style="clear:left;"></div>');
+	    addNewAccountDiv.appendTo("#BodyDiv");
+	  }	 
+	  // modify the contents of the Add Device div set
+	  $("#addaccountlabeldiv0").html("Create New Account"); 
+	  $("#addaccounttextdiv0").html("&nbsp;"); 
+	  $("#addaccountlabeldiv1").text("eMail Address");
+	  $("#addaccountlabeldiv2").text("Password");
+	  
+
+	//one div: ButtonDiv1
+	  //contains one button
+	  var buttonDiv = $(document.createElement('div')).attr("id", 'buttondiv1' );
+	  buttonDiv.appendTo("#BodyDiv");
+	   
+	  var r= '<input type="button" id="addbutton1" class="btn btn-primary" value="Create Account"/>';
+	  
+	  $("#buttondiv1").html(r);
+	    
+	  $( "#addbutton1" ).click(function() {
+	   addAccount();
+	  });
+	  
+	  //Add Person Result
+	  var addNewAccountDiv = $(document.createElement('div')).attr("id", 'addaccountlabel' + i);
+
+	  addNewAccountDiv.after().html('<div id="addaccountlabel' + "" + '" style="float: left; width: 200px;">Result</div>' +
+	  '<div style="float: left; width: 200px;" id="addaccountresult' + "" + '"></div><div style="clear:left;"></div>');
+	   
+	  addNewAccountDiv.appendTo("#BodyDiv");
+
+
+
+};		
+</script>
+
+<title>New ImOkBox Account</title>
+</head>
+<body>
+<div id="myContainer" class="container" style="width:720px;">
+      <div class="header clearfix">
+        <nav>
+          <ul class="nav nav-pills pull-right">
+            <li role="presentation" class="active"><a href="#">Home</a></li>
+            <li role="presentation"><a href="#">About</a></li>
+            <li role="presentation"><a href="#">Contact</a></li>
+          </ul>
+        </nav>
+        <h3 class="text-muted">ImOKbox: The Constant Reminder</h3>
+      </div>
+
+      <div class="jumbotron">
+        <h1>What is ImOkbox?</h1>
+        <p class="lead">They say that now news is good news. I disagree. I say good news is good news, and the the best news I can thing of is that the people and animals is my world are all OK. That's why I designed the ImOKBox. A wall mounted device that will send an I'm OK and photo by text, Tweet, email or voice call with a touch of it' big blue button or even when motion is detected by it's camera. <BR>It's also  a reminder system for the home that will send a I'm OK! message and photo as a text message, Tweet, email or voice call with a single press of it's big blue Send button. It will also remind you to take medication and with a single button press, register a confirmation in your account. And if you don't confirm? Well, if you've chosen to have it do so, it will text you, email you, call you on the phone and send messages to friends saying you haven't.</p>
+        <p><a class="btn btn-lg btn-success" href="#" role="button">Sign up today</a></p>
+      </div>
+
+<div id="BodyDiv" >
+&nbsp;
+</div>
+
+</div>
+</body>
+</html>
