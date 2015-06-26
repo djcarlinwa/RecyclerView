@@ -648,28 +648,75 @@ function renderNewAccount(){
 <title>New ImOkBox Account</title>
 </head>
 <body>
-<div id="myContainer" class="container" style="width:720px;">
-      <div class="header clearfix">
-        <nav>
-          <ul class="nav nav-pills pull-right">
-            <li role="presentation" class="active"><a href="#">Home</a></li>
-            <li role="presentation"><a href="#">About</a></li>
-            <li role="presentation"><a href="#">Contact</a></li>
-          </ul>
-        </nav>
-        <h3 class="text-muted">ImOKbox: The Constant Reminder</h3>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Project name</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <form class="navbar-form navbar-right">
+            <div class="form-group">
+              <input type="text" placeholder="Email" class="form-control">
+            </div>
+            <div class="form-group">
+              <input type="password" placeholder="Password" class="form-control">
+            </div>
+            <button type="submit" class="btn btn-success">Sign in</button>
+          </form>
+        </div><!--/.navbar-collapse -->
+      </div>
+    </nav>
+
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="jumbotron">
+      <div class="container">
+        <h1>Hello, world!</h1>
+        <p>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
+        <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>
+      </div>
+    </div>
+
+    <div class="container">
+      <!-- Example row of columns -->
+      <div class="row">
+        <div class="col-md-4">
+          <h2>Heading</h2>
+          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+        </div>
+        <div class="col-md-4">
+          <h2>Heading</h2>
+          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+       </div>
+        <div class="col-md-4">
+          <h2>Heading</h2>
+          <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+        </div>
       </div>
 
-      <div class="jumbotron">
-        <h1>What is ImOkbox?</h1>
-        <p class="lead">They say that now news is good news. I disagree. I say good news is good news, and the the best news I can thing of is that the people and animals is my world are all OK. That's why I designed the ImOKBox. A wall mounted device that will send an I'm OK and photo by text, Tweet, email or voice call with a touch of it' big blue button or even when motion is detected by it's camera. <BR>It's also  a reminder system for the home that will send a I'm OK! message and photo as a text message, Tweet, email or voice call with a single press of it's big blue Send button. It will also remind you to take medication and with a single button press, register a confirmation in your account. And if you don't confirm? Well, if you've chosen to have it do so, it will text you, email you, call you on the phone and send messages to friends saying you haven't.</p>
-        <p><a class="btn btn-lg btn-success" href="#" role="button">Sign up today</a></p>
-      </div>
+      <hr>
 
-<div id="BodyDiv" >
-&nbsp;
-</div>
+      <footer>
+        <p>&copy; Company 2014</p>
+      </footer>
+    </div> <!-- /container -->
 
-</div>
-</body>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="../../dist/js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+  </body>
 </html>
+
