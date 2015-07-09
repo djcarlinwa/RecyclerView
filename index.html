@@ -20,6 +20,7 @@ var myUrl = "http://imokbox.com/ws/";
 var i = 1;
 var counter = 1;
 var myUuid = 't';
+var myContent = '';
 
 $(document).ready(function()
 {
@@ -55,6 +56,7 @@ function  logOn(){
 	        //$("#logonresult").html(" Response Code:" + json.responsecode + "uuid:" + json.uuid);
 	        
 	        alert(json.uuid);
+	    	renderDashboard(json.uuid);
 	        
 	        if (json.responsecode == 1)
 	        {
@@ -206,8 +208,9 @@ function renderLogOn(){
 function renderDashboard( uuid ){
 	 
 	  var first = "David";
-	  $('#BodyDiv').html("");
-	
+	  //$('#BodyDiv').html("");
+	   myContent = $('#Div1').html();
+	  
 	  for (i = 0; i < 13; i++)
 	  {
 	    var newDashboardDiv = $(document.createElement('div')).attr("id", 'dashboarddiv' + i);
@@ -216,7 +219,7 @@ function renderDashboard( uuid ){
 	    	    '<div style="float: left; width: 800px;" id="dashboardtextdiv' + i + '"> <input type="text" name="dashboardinputname' + i + 
 	    	    '" id="dashboardinput' + i + '" value="" ></div><div style="clear:left;"></div>');
 	    // addNewAccountDiv.appendTo("#BodyDiv");
-	    newDashboardDiv.appendTo("#BodyDiv");
+	    newDashboardDiv.appendTo("#Div1");
 	  }	 
 	  
 	 
@@ -650,6 +653,7 @@ function renderNewAccount(){
 <title>ImOkBox</title>
 </head>
 <body>
+<div id="Div1">
     <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
@@ -712,7 +716,7 @@ function renderNewAccount(){
         <p>&copy; Company 2014</p>
       </footer>
     </div> <!-- /container -->
-
+</div>
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
