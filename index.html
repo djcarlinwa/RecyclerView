@@ -56,7 +56,8 @@ function  logOn(){
 	        //$("#logonresult").html(" Response Code:" + json.responsecode + "uuid:" + json.uuid);
 	        
 	        alert(json.uuid);
-	    	renderDashboard(json.uuid);
+	        myUuid = json.uuid;
+	        renderDashboard(json.uuid);
 	        
 	        if (json.responsecode == 1)
 	        {
