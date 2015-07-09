@@ -340,7 +340,7 @@ function renderDashboard( uuid ){
 
  
 	   	
-  	//  getSmsNumbers();
+  	  getSmsNumbers();
   	//  getSmsMessages();
 	  
 }
@@ -452,7 +452,7 @@ function  getSmsNumbers(){
 	$.ajax({
 
 	    // The URL for the request
-	    url: myUrl + "getsmsnumbersbyuuid.cgi",
+	    url: myUrl + "getsmsnumbersbyuuid",
 	 
 	    // The data to send (will be converted to a query string)
 	    data: {
