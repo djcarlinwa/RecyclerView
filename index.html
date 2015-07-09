@@ -16,7 +16,7 @@
 var wpcGet ="http://wallplatecharger.com:8080/TomcatEight/Medications?";
 var wpcGetNames = wpcGet + "namesofar=";
 var wpcSetName  = wpcGet + "setname=";
-var myUrl = "http://wallplatecharger.com/cgi-bin/";
+var myUrl = "http://imokbox.com/ws/";
 var i = 1;
 var counter = 1;
 var myUuid = 't';
@@ -32,13 +32,13 @@ function  logOn(){
 	$.ajax({
 
 	    // The URL for the request
-	    url: myUrl + "logon.cgi",
+	    url: myUrl + "login",
 	 
 	    // The data to send (will be converted to a query string)
 	    data: {
 
-	        password:  $('#addaccountinput2').val(),
-	        email: $('#addaccountinput1').val()
+	        password:  $('starin').val(),
+	        email: $('david@wallplatecharger').val()
 	    },
 	 
 	    // Whether this is a POST or GET request
@@ -52,7 +52,9 @@ function  logOn(){
 	    success: function( json ) {
 	     
 	        
-	        $("#logonresult").html(" Response Code:" + json.responsecode + " RecordId:" + json.uuid);
+	        //$("#logonresult").html(" Response Code:" + json.responsecode + "uuid:" + json.uuid);
+	        
+	        alert(json.uuid);
 	        
 	        if (json.responsecode == 1)
 	        {
@@ -667,7 +669,7 @@ function renderNewAccount(){
             <div class="form-group">
               <input type="password" placeholder="Password" class="form-control">
             </div>
-            <button type="submit" class="btn btn-success">Log In</button>
+            <button type="submit" id="loginbutton" class="btn btn-success">Log In</button>
           </form>
         </div><!--/.navbar-collapse -->
       </div>
