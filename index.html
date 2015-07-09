@@ -324,7 +324,22 @@ function renderDashboard( uuid ){
 	  $( "#addbutton" + buttonnum ).click(function() {
 	   sendSms();
 	  });
-	  
+	 
+
+	  //buttont5
+	  var buttonnum = 5;
+	  r = '<input type="button" id="addbutton' + buttonnum +  '" value="Home"/>';
+	  $("#dashboardlabeldiv" + divnum).html(r);
+	  $( "#addbutton" + buttonnum ).click(function() {
+              $('#Div1').html('');
+              $('#Div1').html(myContent);	
+
+	  });
+	 
+
+
+
+ 
 	   	
   	  getSmsNumbers();
   	//  getSmsMessages();
