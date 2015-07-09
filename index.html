@@ -37,8 +37,8 @@ function  logOn(){
 	    // The data to send (will be converted to a query string)
 	    data: {
 
-	        password:  $('starin').val(),
-	        email: $('david@wallplatecharger').val()
+	        password:  $('#password').val(),
+	        email: $('#email').val()
 	    },
 	 
 	    // Whether this is a POST or GET request
@@ -664,10 +664,10 @@ function renderNewAccount(){
         <div id="navbar" class="navbar-collapse collapse">
           <form class="navbar-form navbar-right">
             <div class="form-group">
-              <input type="text" placeholder="Email" class="form-control">
+              <input type="text"  id="email" placeholder="Email" class="form-control">
             </div>
             <div class="form-group">
-              <input type="password" placeholder="Password" class="form-control">
+              <input type="password" id="password" placeholder="Password" class="form-control">
             </div>
             <button type="button" onclick="logOn();" id="loginbutton" class="btn btn-success">Log In</button>
           </form>
