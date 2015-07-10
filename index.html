@@ -29,6 +29,8 @@ $(document).ready(function()
 function  logOn(){
 	////alert("values:" + $('#findinput3').val());
 	
+	var myEmail =  $('#email').val();
+	
 	$.ajax({
 
 	    // The URL for the request
@@ -38,7 +40,7 @@ function  logOn(){
 	    data: {
 
 	        password: $('#password').val(),
-	        email:    $('#email').val()
+	        email:    myEmail
 	    },
 	 
 	    // Whether this is a POST or GET request
@@ -54,7 +56,7 @@ function  logOn(){
 	    	if (json.responsecode == 1)
 	        {
 	        	myUuid = json.uuid;
-	        	renderDashboard(json.uuid);
+	        	renderDashboard(json.uuid, myEmail);
 	        }
 	        else
 	        {
@@ -209,14 +211,14 @@ function renderLogOn(){
 	
 }
 
-function renderDashboard( uuid ){
+function renderDashboard( uuid, email ){
 	  
 	  var first = "David";
 	  var myContent = $('#Div1').html();
 	  
 	  $('#Div1').html("");
 	  
-	  for (i = 0; i < 13; i++)
+	  for (i = 0; i < 14; i++)
 	  {
 	    var newDashboardDiv = $(document.createElement('div')).attr("id", 'dashboarddiv' + i);
 
@@ -232,24 +234,28 @@ function renderDashboard( uuid ){
 	  // modify the contents of the Add Device div set
 	  $("#dashboardlabeldiv0").html("ImOkBox Dashboard"); 
 	  $("#dashboardtextdiv0").html("&nbsp;"); 
-	  $("#dashboardtextdiv1").text(uuid); 
 	  $("#dashboardlabeldiv1").text("UUID");
-	  $("#dashboardlabeldiv2").text("First");
-	  $("#dashboardlabeldiv3").text("Last");
-	  $("#dashboardlabeldiv4").text("Device MAC");
+	  $("#dashboardlabeldiv2").text("Email");
+	  $("#dashboardlabeldiv3").text("First");
+	  $("#dashboardlabeldiv4").text("Last");
+	  $("#dashboardlabeldiv5").text("Device MAC");
 	
+	  $("#dashboardtextdiv1").text(uuid); 
+	  $("#dashboardtextdiv2").text(email); 
+	  
+	  
 	  //button1
 	  var r = '<input type="button" id="addbutton1" value="Update Record"/>';
-	  $("#dashboardlabeldiv5").html(r);
+	  $("#dashboardlabeldiv6").html(r);
 	  $( "#addbutton1" ).click(function() {
 	   updateAccount();
 	  });
-	  $("#dashboardtextdiv5").html("&nbsp;"); 
+	  $("#dashboardtextdiv6").html("&nbsp;"); 
 	  
-	  $("#dashboarddiv6").html("<hr>");
+	  $("#dashboarddiv7").html("<hr>");
 	  
 	  //button2
-	  var divnum = 7;
+	  var divnum = 8;
 	  r= '<input type="button" id="addbutton2" value="Add Message"/>';
 	  $("#dashboardlabeldiv" + divnum).html(r);  
 	  $( "#addbutton2" ).click(function() {
@@ -258,7 +264,7 @@ function renderDashboard( uuid ){
 	  
 	  //button3
 	  var buttonnum = 3;
-	  divnum = 8;
+	  divnum = 9;
 	  r= '<input type="button" id="addbutton' + buttonnum +  '" value="Add SMS Number"/>';
 	  $("#dashboardlabeldiv" + divnum).html(r);
 	  $( "#addbutton" + buttonnum ).click(function() {
@@ -296,7 +302,7 @@ function renderDashboard( uuid ){
 	  
 	  
 	  
-	  divnum = 9 ;
+	  divnum = 10 ;
       $("#dashboarddiv" + divnum).html("<hr>");
 	  
   
@@ -304,7 +310,7 @@ function renderDashboard( uuid ){
 
 
 
-	  divnum = 10;
+	  divnum = 11;
 	  //select1
 	  var selectnum = 1;
 	  r = '<select id="select' + selectnum +'"></select>'
@@ -314,7 +320,7 @@ function renderDashboard( uuid ){
 	  r = '<select id="select' + selectnum +'"></select>' 
 	  $("#dashboardtextdiv" + divnum).html(r);
 	  
-	  divnum = 10;
+	  divnum = 12;
 	  $("#dashboardlabeldiv" + divnum).text("Test Message");
 	  divnum++;
 	  $("#dashboardlabeldiv" + divnum).text("Test Number");
