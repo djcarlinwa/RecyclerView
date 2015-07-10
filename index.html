@@ -353,7 +353,7 @@ function  getSmsMessages(){
 	$.ajax({
 
 	    // The URL for the request
-	    url: myUrl + "getmsgs",
+	    url: myUrl + "getsmsmsg",
 	 
 	    // The data to send (will be converted to a query string)
 	    data: {
@@ -361,7 +361,7 @@ function  getSmsMessages(){
 	    },
 	 
 	    // Whether this is a POST or GET request
-	    type: "GET",
+	    type: "POST",
 	 
 	    // The type of data we expect back
 	    dataType : "json",
