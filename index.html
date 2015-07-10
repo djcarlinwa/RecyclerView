@@ -645,7 +645,7 @@ function renderNewAccount(){
 	//one div: ButtonDiv1
 	  //contains one button
 	  var buttonDiv = $(document.createElement('div')).attr("id", 'buttondiv1' );
-	  buttonDiv.appendTo("#BodyDiv");
+	  buttonDiv.appendTo("#Div1");
 	   
 	  var r= '<input type="button" id="addbutton1" class="btn btn-primary" value="Create Account"/>';
 	  
@@ -661,10 +661,7 @@ function renderNewAccount(){
 	  addNewAccountDiv.after().html('<div id="addaccountlabel' + "" + '" style="float: left; width: 200px;">Result</div>' +
 	  '<div style="float: left; width: 200px;" id="addaccountresult' + "" + '"></div><div style="clear:left;"></div>');
 	   
-	  addNewAccountDiv.appendTo("#BodyDiv");
-
-
-
+	  addNewAccountDiv.appendTo("#Div1");
 };		
 </script>
 
