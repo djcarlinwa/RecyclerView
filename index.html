@@ -272,7 +272,7 @@ function renderDashboard( uuid, email ){
 	  });
 	  
       //input for country, areacode, number
-	  var inputNum = 7;
+	  var inputNum = 9;
 	  r = '<input type="text" name="countrycode' +  
   	    '" id="input' + inputNum + '" value="Country" >';
   	  $("#dashboardtextdiv" + divnum).html(r);
@@ -283,17 +283,17 @@ function renderDashboard( uuid, email ){
 	  $("#dashboardtextdiv" + divnum).append(r);	  
 	  
 	  inputNum++;
-  	  r = '<input type="text" name="dashboardinput' + inputNum + 
+  	  r = '<input type="text" name="number' + 
 	    '" id="input' + inputNum + '" value="Number" >';
 	  $("#dashboardtextdiv" + divnum).append(r);	
 	  
 	  inputNum++;
-	  r = '<input type="text" name="dashboardinput' + inputNum + 
+	  r = '<input type="text" name="description" +  
 	    '" id="input' + inputNum + '" value="Description" >';
 	  $("#dashboardtextdiv" + divnum).append(r);	
 	  
 	  inputNum++;
-	  r = '<input type="text" name="dashboardinput' + inputNum + 
+	  r = '<input type="text" name="email'  + 
 	    '" id="input' + inputNum + '" value="eMail" >';
 	  $("#dashboardtextdiv" + divnum).append(r);
 	  
@@ -525,9 +525,9 @@ function  addSmsNumberByUuid(){
 	    	
 	    	countrycode: $('[name=countrycode]').val(),
 	    	areacode:    $('[name=areacode]').val(),
-	    	smsnumber:   $('#input9').val(),
-	    	description: $('#input10').val(),
-	    	email:       $('#input11').val(),
+	    	smsnumber:   $('[name=number]').val(),
+	    	description: $('[name=description]').val(),
+	    	email:       $('[name=email]').val(),
 	    	uuid:        myUuid
 	    	
 	    	
