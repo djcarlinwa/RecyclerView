@@ -342,7 +342,7 @@ function renderDashboard( uuid ){
  
 	   	
   	    getSmsNumbers();
-  	//  getSmsMessages();
+  	    getSmsMessages();
 	  
 }
 
@@ -353,7 +353,7 @@ function  getSmsMessages(){
 	$.ajax({
 
 	    // The URL for the request
-	    url: myUrl + "getsmsmessagesbyuuid.cgi",
+	    url: myUrl + "getmsgs",
 	 
 	    // The data to send (will be converted to a query string)
 	    data: {
@@ -374,7 +374,7 @@ function  getSmsMessages(){
 	    	_select.html("");
 			$.each(json, function(index, val) {
 			    _select.append(
-			            $('<option></option>').val(val.id).html(val.message)
+			            $('<option></option>').val(val.ID).html(val.MSGTEXT)
 			        );
 			});
 		
