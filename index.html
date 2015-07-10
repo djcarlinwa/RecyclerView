@@ -273,12 +273,12 @@ function renderDashboard( uuid, email ){
 	  
       //input for country, areacode, number
 	  var inputNum = 7;
-	  r = '<input type="text" name="dashboardinput' + inputNum + 
+	  r = '<input type="text" name="countrycode' +  
   	    '" id="input' + inputNum + '" value="Country" >';
   	  $("#dashboardtextdiv" + divnum).html(r);
 	  
   	  inputNum++;
-  	  r = '<input type="text" name="dashboardinput' + inputNum + 
+  	  r = '<input type="text" name="areacode' +  
 	    '" id="input' + inputNum + '" value="Area" >';
 	  $("#dashboardtextdiv" + divnum).append(r);	  
 	  
@@ -523,8 +523,8 @@ function  addSmsNumberByUuid(){
 	    //	my $uuid               = $query->param('uuid');
 	    //	my $email              = $query->param('email');
 	    	
-	    	countrycode: $('#input7').val(),
-	    	areacode:    $('#input8').val(),
+	    	countrycode: $('[name=countrycode]').val(),
+	    	areacode:    $('[name=areacode]').val(),
 	    	smsnumber:   $('#input9').val(),
 	    	description: $('#input10').val(),
 	    	email:       $('#input11').val(),
@@ -582,7 +582,7 @@ function  addSmsNumberByUuid(){
 		    // The data to send (will be converted to a query string)
 		    data: {
 		    		uuid:        myUuid,
-		    		message:    $("#dashboardinput7").val()
+		    		message:    $("#dashboardinput8").val()
 		    },
 		 
 		    // Whether this is a POST or GET request
