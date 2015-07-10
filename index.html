@@ -102,13 +102,13 @@ function  addAccount(){
 	$.ajax({
 
 	    // The URL for the request
-	    url: myUrl + "addaccount.cgi",
+	    url: myUrl + "addaccount",
 	 
 	    // The data to send (will be converted to a query string)
 	    data: {
 
 	        password:  $('#addaccountinput2').val(),
-	        email: $('#addaccountinput1').val()
+	        email:     $('#addaccountinput1').val()
 	    },
 	 
 	    // Whether this is a POST or GET request
