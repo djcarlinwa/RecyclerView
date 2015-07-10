@@ -333,6 +333,8 @@ function renderDashboard( uuid, email ){
 	  $( "#addbutton" + buttonnum ).click(function() {
 	   sendSms();
 	  });
+	  $("#dashboardtextdiv" + divnum).html('');
+	  
 	  divnum++;
 	  
 	  //button5
@@ -344,6 +346,7 @@ function renderDashboard( uuid, email ){
               $('#Div1').html(myContent);	
 
 	  });
+	  $("#dashboardtextdiv" + divnum).html('');
 	  
 	  getSmsNumbers();
   	  getSmsMessages();
