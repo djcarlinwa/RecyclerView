@@ -19,7 +19,8 @@ var wpcSetName  = wpcGet + "setname=";
 var myUrl = "http://imokbox.com/ws/";
 var i = 1;
 var counter = 1;
-var myUuid = 't';
+var myUuid         = 't';
+var myResponseCode = 0;
 var myContent = '';
 
 $(document).ready(function()
@@ -38,8 +39,8 @@ function  logOn(){
 	    // The data to send (will be converted to a query string)
 	    data: {
 
-	        password:  $('#password').val(),
-	        email: $('#email').val()
+	        password: $('#password').val(),
+	        email:    $('#email').val()
 	    },
 	 
 	    // Whether this is a POST or GET request
@@ -51,26 +52,16 @@ function  logOn(){
 	    // Code to run if the request succeeds;
 	    // the response is passed to the function
 	    success: function( json ) {
-	     
-	        
-	        //$("#logonresult").html(" Response Code:" + json.responsecode + "uuid:" + json.uuid);
-	        
-	        alert(json.uuid);
-	        myUuid = json.uuid;
-	        renderDashboard(json.uuid);
-	        
-	        if (json.responsecode == 1)
+
+	    	if (json.responsecode == 1)
 	        {
-	        	
 	        	myUuid = json.uuid;
 	        	renderDashboard(json.uuid);
-	        	
-	        	
 	        }
-	        
-	        //alert( "request id" + json.id); 
-	        
-	        
+	        else
+	        {
+	            alert("Login credentials are not correct.");
+	        }
 	    },
 	 
 	    // Code to run if the request fails; the raw request and
