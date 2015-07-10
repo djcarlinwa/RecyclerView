@@ -99,6 +99,9 @@ function  logOn(){
 function  addAccount(){
 	////alert("values:" + $('#findinput3').val());
 	
+	var myEmail   = $('#addaccountinput1').val();
+	var myContent = $('#Div1').html();
+	
 	$.ajax({
 
 	    // The URL for the request
@@ -108,7 +111,7 @@ function  addAccount(){
 	    data: {
 
 	        password:  $('#addaccountinput2').val(),
-	        email:     $('#addaccountinput1').val()
+	        email:     myEmail
 	    },
 	 
 	    // Whether this is a POST or GET request
@@ -126,9 +129,11 @@ function  addAccount(){
 	        
 	        if (json.responsecode == 1)
 	        {
+	      	  $('#Div1').html(myContent);
 	        	
-	        	
-	        	renderLogOn();
+	      	  $('#email').val(myEmail);
+	      	  
+	      	  //renderLogOn();
 	        	
 	        	
 	        }
@@ -207,8 +212,8 @@ function renderLogOn(){
 function renderDashboard( uuid ){
 	  
 	  var first = "David";
-	
-	  myContent = $('#Div1').html();
+	  var myContent = $('#Div1').html();
+	  
 	  $('#Div1').html("");
 	  
 	  for (i = 0; i < 13; i++)
@@ -333,17 +338,10 @@ function renderDashboard( uuid ){
               $('#Div1').html(myContent);	
 
 	  });
-	 
-
-
-
- 
-	   	
-  	    getSmsNumbers();
-  	    getSmsMessages();
 	  
+	  getSmsNumbers();
+  	  getSmsMessages();
 }
-
 
 function  getSmsMessages(){
 	//alert("uuid: " + myUuid);
