@@ -13,19 +13,17 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 <script type="text/javascript">
 
-var wpcGet ="http://wallplatecharger.com:8080/TomcatEight/Medications?";
-var wpcGetNames = wpcGet + "namesofar=";
-var wpcSetName  = wpcGet + "setname=";
+
 var myUrl = "http://imokbox.com/ws/";
-var i = 1;
-var counter = 1;
+var i              = 1;
+var counter        = 0;
 var myUuid         = 't';
 var myResponseCode = 0;
-var myContent = '';
+var myContent      = '';
 
 $(document).ready(function()
 {
-  renderNewAccount();		  
+  //renderNewAccount();		  
 });
 
 function  logOn(){
@@ -60,7 +58,16 @@ function  logOn(){
 	        }
 	        else
 	        {
-	            alert("Login credentials are not correct.");
+	            counter++;
+	        	if (counter == 3)
+	            {
+	            	renderNewAccount();
+	                counter = 0 
+	            }	
+	            else
+	            {
+	            	alert("Attempt: " + counter + " \nLogin credentials are not correct. \nAfter three attempts, you will be given the opprotunity to recover your password or setup a new account.");
+	            }
 	        }
 	    },
 	 
@@ -198,11 +205,11 @@ function renderLogOn(){
 }
 
 function renderDashboard( uuid ){
-	 
+	  
 	  var first = "David";
-	  //$('#BodyDiv').html("");
-	   myContent = $('#Div1').html();
-	   $('#Div1').html("");
+	
+	  myContent = $('#Div1').html();
+	  $('#Div1').html("");
 	  
 	  for (i = 0; i < 13; i++)
 	  {
@@ -616,7 +623,9 @@ function  addSmsNumberByUuid(){
 
 
 function renderNewAccount(){
-	
+	  myContent = $('#Div1').html();
+	  $('#Div1').html("");
+
 	  for (i = 0; i < 3; i++)
 	  {
 	    var addNewAccountDiv = $(document.createElement('div')).attr("id", 'addNewAccountdiv' + i);
@@ -624,7 +633,7 @@ function renderNewAccount(){
 	    addNewAccountDiv.after().html('<div id="addaccountlabeldiv' + i + '" style="float: left; width: 200px;">Textbox #'+ counter + ' : </div>' +
 	    	    '<div style="float: left; width: 200px;" id="addaccounttextdiv' + i + '"> <input type="text" name="inputbox' + i + 
 	    	    '" id="addaccountinput' + i + '" value="" ></div><div style="clear:left;"></div>');
-	    addNewAccountDiv.appendTo("#BodyDiv");
+	    addNewAccountDiv.appendTo("#Div1");
 	  }	 
 	  // modify the contents of the Add Device div set
 	  $("#addaccountlabeldiv0").html("Create New Account"); 
